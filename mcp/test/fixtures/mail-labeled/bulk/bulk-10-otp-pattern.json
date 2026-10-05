@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "REDACT_DROP",
+    "expected_reason": "otp_pattern",
+    "note": "Rule 10: OTP body pattern -> REDACT_DROP (not plain DROP). Currently dead in production (no bodies resolve, M1 rule 10 = 0 rows); this fixture keeps the redaction path armed. Sender is non-noreply and all Apple columns are zeroed so rule 10 gets exact attribution."
+  },
+  "row": {
+    "ts": "2026-07-02T19:55:08.000Z",
+    "source_msg_id": "fixture:mail-labeled/bulk-10",
+    "parties": [
+      "accounts@brightloom-fixture.example",
+      "fixture-operator@mail.fixture-host.example"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "829461 is your sign-in code for Brightloom. It expires in ten minutes. If you did not request this, you can ignore this message.",
+      "subject": "Your Brightloom sign-in code",
+      "headers": {
+        "from": "Brightloom Accounts <accounts@brightloom-fixture.example>",
+        "to": "fixture-operator@mail.fixture-host.example",
+        "subject": "Your Brightloom sign-in code",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

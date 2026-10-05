@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.screentime-connector
+     Optional connector. Long-running reader of the Screen Time database. The node binary
+     this file pins needs Full Disk Access.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.screentime-connector</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__NODE__</string>
+		<string>__MEMORY_ROOT__/daemons/screentime-connector.js</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>MEMORY_ROOT</key>
+		<string>__MEMORY_ROOT__</string>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>ThrottleInterval</key>
+	<integer>30</integer>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/screentime-connector.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/screentime-connector.stderr</string>
+</dict>
+</plist>

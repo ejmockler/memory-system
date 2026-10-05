@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "node": "N9",
+    "purpose": "Cross-platform catch-up corpus. ENVELOPE rows (already L1-projected) grouped per source ledger, with one cross-platform person on TWO platforms so dedup demonstrably collapses 2 -> 1 and platforms_in_result>=2.",
+    "pinned_now_ts": 1700010000000,
+    "self_id": "user",
+    "people": {
+      "amara": "same human reachable on source_a (+15551230001) AND source_b (+15551230001@c.example) -> ONE person via E.164 shape; waiting on you on both, latest source_b is more recent",
+      "blake": "source_a only (+15551239999); waiting on you (substantive, directed, they-spoke-last)",
+      "casey": "source_b only (casey@example.com); they-spoke-last but a pure CLOSER ('thanks!') -> must NOT surface",
+      "dana": "source_a; DIRECTED+substantive but I (user) spoke LAST -> answered -> must NOT surface",
+      "operator": "user; the self rows are never surfaced"
+    }
+  },
+  "sources": {
+    "source_a": [
+      {
+        "platform": "source_a",
+        "thread_id": "dm_amara_a",
+        "thread_type": "dm",
+        "sender": { "id": "+15551230001", "name": "Amara" },
+        "recipients": ["user"],
+        "is_from_me": false,
+        "ts": 1700000000000,
+        "content": "hey can you send me the q3 deck when you get a sec?",
+        "mentions": [],
+        "directed_at_me_signals": { "mention_me": false, "reply_to_me": false, "addressed_to_me": false },
+        "capabilities": { "reply_to_available": true, "structured_mentions": true, "self_identity_reliable": true, "addressing_first_class": false },
+        "source_msg_id": "a:amara:1"
+      },
+      {
+        "platform": "source_a",
+        "thread_id": "dm_blake_a",
+        "thread_type": "dm",
+        "sender": { "id": "+15551239999", "name": "Blake" },
+        "recipients": ["user"],
+        "is_from_me": false,
+        "ts": 1700001000000,
+        "content": "what time works for the review tomorrow?",
+        "mentions": [],
+        "directed_at_me_signals": { "mention_me": false, "reply_to_me": false, "addressed_to_me": false },
+        "capabilities": { "reply_to_available": true, "structured_mentions": true, "self_identity_reliable": true, "addressing_first_class": false },
+        "source_msg_id": "a:blake:1"
+      },
+      {
+        "platform": "source_a",
+        "thread_id": "dm_dana_a",
+        "thread_type": "dm",
+        "sender": { "id": "+15551235555", "name": "Dana" },
+        "recipients": ["user"],
+        "is_from_me": false,
+        "ts": 1700000500000,
+        "content": "could you confirm the address for the meeting?",
+        "mentions": [],
+        "directed_at_me_signals": { "mention_me": false, "reply_to_me": false, "addressed_to_me": false },
+        "capabilities": { "reply_to_available": true, "structured_mentions": true, "self_identity_reliable": true, "addressing_first_class": false },
+        "source_msg_id": "a:dana:1"
+      },
+      {
+        "platform": "source_a",
+        "thread_id": "dm_dana_a",
+        "thread_type": "dm",
+        "sender": { "id": "user", "name": null },
+        "recipients": ["+15551235555"],
+        "is_from_me": true,
+        "ts": 1700000600000,
+        "content": "yes, it's 500 Howard St, see you there",
+        "mentions": [],
+        "directed_at_me_signals": { "mention_me": false, "reply_to_me": false, "addressed_to_me": false },
+        "capabilities": { "reply_to_available": true, "structured_mentions": true, "self_identity_reliable": true, "addressing_first_class": false },
+        "source_msg_id": "a:dana:2"
+      }
+    ],
+    "source_b": [
+      {
+        "platform": "source_b",
+        "thread_id": "dm_amara_b",
+        "thread_type": "dm",
+        "sender": { "id": "+15551230001@c.example", "name": "Amara R" },
+        "recipients": ["user"],
+        "is_from_me": false,
+        "ts": 1700005000000,
+        "content": "also could you review the contract draft when free?",
+        "mentions": [],
+        "directed_at_me_signals": { "mention_me": false, "reply_to_me": false, "addressed_to_me": false },
+        "capabilities": { "reply_to_available": false, "structured_mentions": false, "self_identity_reliable": false, "addressing_first_class": false },
+        "source_msg_id": "b:amara:1"
+      },
+      {
+        "platform": "source_b",
+        "thread_id": "dm_casey_b",
+        "thread_type": "dm",
+        "sender": { "id": "casey@example.com", "name": "Casey" },
+        "recipients": ["user"],
+        "is_from_me": false,
+        "ts": 1700004000000,
+        "content": "thanks!",
+        "mentions": [],
+        "directed_at_me_signals": { "mention_me": false, "reply_to_me": false, "addressed_to_me": false },
+        "capabilities": { "reply_to_available": true, "structured_mentions": false, "self_identity_reliable": true, "addressing_first_class": true },
+        "source_msg_id": "b:casey:1"
+      }
+    ]
+  }
+}

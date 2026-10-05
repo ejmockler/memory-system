@@ -1,0 +1,12 @@
+318
+From: Workflow Notifications <notifications@example.com>
+To: alex@example.com
+Subject: Workflow notification: step complete
+Date: Mon, 1 Jun 2026 13:50:00 +0000
+Message-ID: <wf-10@example.com>
+Content-Type: text/plain; charset=utf-8
+
+Automated workflow status notification.
+A step in your saved workflow has finished.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

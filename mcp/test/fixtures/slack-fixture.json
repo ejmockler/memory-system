@@ -1,0 +1,139 @@
+{
+  "_README": "Synthetic Slack API responses for slack-connector.test.mjs. No real tokens, no real workspace IDs, no real channel IDs, no operator dialog. All IDs use placeholder prefixes (T01, C01, D01, G01, U01) and all message text uses ALPHA/BETA placeholder strings.",
+  "auth_test_T01ALPHA": {
+    "ok": true,
+    "url": "https://example.invalid/",
+    "team": "ALPHA-TEAM",
+    "user": "alpha-operator",
+    "team_id": "T01ALPHA",
+    "user_id": "U01OPERATOR"
+  },
+  "conversations_list_T01ALPHA": {
+    "ok": true,
+    "channels": [
+      {
+        "id": "D01DM00001",
+        "is_im": true,
+        "is_archived": false,
+        "user": "U01PEER1"
+      },
+      {
+        "id": "G01MPIM001",
+        "is_mpim": true,
+        "is_archived": false
+      },
+      {
+        "id": "C01PRIV001",
+        "is_private": true,
+        "is_archived": false,
+        "name": "alpha-private"
+      },
+      {
+        "id": "C01PUB0001",
+        "is_private": false,
+        "is_archived": false,
+        "name": "alpha-public"
+      }
+    ],
+    "response_metadata": { "next_cursor": "" }
+  },
+  "_NOTE_history_ordering": "Slack's conversations.history returns messages newest-first within a page. The fixture mirrors that ordering. The connector reverses each page + walks pages in reverse so the final emission stream is oldest-first.",
+  "conversations_history_D01DM00001": {
+    "ok": true,
+    "has_more": false,
+    "messages": [
+      {
+        "type": "message",
+        "user": "U01PEER1",
+        "ts": "1730000020.000300",
+        "text": "BETA reply from peer"
+      },
+      {
+        "type": "message",
+        "user": "U01OPERATOR",
+        "ts": "1730000010.000200",
+        "text": "ALPHA hello from operator"
+      }
+    ],
+    "response_metadata": { "next_cursor": "" }
+  },
+  "conversations_history_G01MPIM001": {
+    "ok": true,
+    "has_more": false,
+    "messages": [
+      {
+        "type": "message",
+        "user": "U01PEER2",
+        "ts": "1730000110.000100",
+        "text": "BETA mpim reply from peer"
+      },
+      {
+        "type": "message",
+        "user": "U01OPERATOR",
+        "ts": "1730000100.000100",
+        "text": "ALPHA mpim from operator"
+      }
+    ],
+    "response_metadata": { "next_cursor": "" }
+  },
+  "conversations_history_C01PRIV001": {
+    "ok": true,
+    "has_more": false,
+    "messages": [
+      {
+        "type": "message",
+        "subtype": "channel_join",
+        "user": "U01PEER4",
+        "ts": "1730000215.000010",
+        "text": "<@U01PEER4> has joined the channel"
+      },
+      {
+        "type": "message",
+        "user": "U01PEER3",
+        "ts": "1730000210.000010",
+        "text": "BETA private channel other"
+      },
+      {
+        "type": "message",
+        "user": "U01OPERATOR",
+        "ts": "1730000200.000010",
+        "text": "ALPHA private channel own"
+      }
+    ],
+    "response_metadata": { "next_cursor": "" }
+  },
+  "conversations_history_C01PUB0001": {
+    "ok": true,
+    "has_more": false,
+    "messages": [
+      {
+        "type": "message",
+        "subtype": "file_share",
+        "user": "U01PEER5",
+        "ts": "1730000330.000010",
+        "text": "",
+        "files": [{ "id": "F01FILE000" }]
+      },
+      {
+        "type": "message",
+        "subtype": "bot_message",
+        "bot_id": "B01BOT0001",
+        "ts": "1730000320.000010",
+        "text": "ALPHA bot announce"
+      },
+      {
+        "type": "message",
+        "user": "U01PEER5",
+        "ts": "1730000310.000010",
+        "text": "BETA public channel observation"
+      },
+      {
+        "type": "message",
+        "user": "U01OPERATOR",
+        "ts": "1730000300.000010",
+        "text": "ALPHA public channel own"
+      }
+    ],
+    "response_metadata": { "next_cursor": "" }
+  }
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.git-log-connector
+     Optional connector. Every 15 minutes runs one pass over local git history (the once
+     flag). Launched through run-with-env.sh because the list of author
+     addresses that count as the operator is an identity value: it lives in
+     config/secrets.env (see launchd/env.example), never in this file.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.git-log-connector</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>__MEMORY_ROOT__/launchd/run-with-env.sh</string>
+		<string>__NODE__</string>
+		<string>__MEMORY_ROOT__/mcp/lib/connectors/git-log-local.js</string>
+		<string>--once</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>MEMORY_ROOT</key>
+		<string>__MEMORY_ROOT__</string>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<false/>
+	<key>StartInterval</key>
+	<integer>900</integer>
+	<key>ThrottleInterval</key>
+	<integer>60</integer>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/git-log-connector.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/git-log-connector.stderr</string>
+</dict>
+</plist>

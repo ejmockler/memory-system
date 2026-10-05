@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.watermark
+     Core. The watermark daemon does all ingest, cascade and indexing. Launched through
+     run-with-env.sh, which sources config/secrets.env when it exists; the daemon itself
+     needs no credentials and calls no cloud service, so with no secrets file it still starts.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.watermark</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>__MEMORY_ROOT__/launchd/run-with-env.sh</string>
+		<string>__NODE__</string>
+		<string>--max-old-space-size=8192</string>
+		<string>__MEMORY_ROOT__/daemons/watermark.js</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>MEMORY_ROOT</key>
+		<string>__MEMORY_ROOT__</string>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>MEMORY_BM25_REBUILD_OBJECT_ENTITIES</key>
+		<string>1</string>
+		<key>MEMORY_BM25_REBUILD_TARGET_ACTIVE</key>
+		<string>1</string>
+		<key>MEMORY_INCREMENTAL_AGGREGATION_ENABLED</key>
+		<string>1</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>ThrottleInterval</key>
+	<integer>30</integer>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/watermark.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/watermark.stderr</string>
+</dict>
+</plist>

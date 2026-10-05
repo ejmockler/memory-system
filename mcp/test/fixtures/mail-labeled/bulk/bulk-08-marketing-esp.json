@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "DROP",
+    "expected_reason": "marketing_platform",
+    "note": "Rule 8: ESP signature via Return-Path + DKIM d= (sendgrid.net). From is deliberately NOT a noreply address so rule 7 cannot claim it; Apple columns zeroed."
+  },
+  "row": {
+    "ts": "2026-05-18T16:41:55.000Z",
+    "source_msg_id": "fixture:mail-labeled/bulk-08",
+    "parties": [
+      "offers@meadowbox-snacks.example",
+      "fixture-operator@mail.fixture-host.example"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "We curated a snack box based on your last order. Peek inside before the picks rotate on Friday.",
+      "subject": "A treat box picked just for you",
+      "headers": {
+        "from": "Meadowbox Snacks <offers@meadowbox-snacks.example>",
+        "to": "fixture-operator@mail.fixture-host.example",
+        "subject": "A treat box picked just for you",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": "<bounces+4417@em221.sendgrid.net>",
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": "v=1; a=rsa-sha256; d=sendgrid.net; s=s1;",
+        "authentication-results": "mx.fixture-host.example; dkim=pass header.d=sendgrid.net"
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": 1,
+      "has_plain": false,
+      "has_html": true,
+      "has_calendar": false,
+      "dkim_d_domain": "sendgrid.net",
+      "auth_results_d_domain": "sendgrid.net",
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

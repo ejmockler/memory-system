@@ -1,0 +1,60 @@
+{
+  "platform": "telegram",
+  "stub": true,
+  "notes": "STUB: the Telegram connector is gated on operator login (TELEGRAM_API_ID/HASH); storage/sources/telegram.jsonl is NOT yet emitted. raw_row is HAND-BUILT from the telegram.js buildRow raw_content shape (telegram.js:306-331). peer_type maps to thread_type (user->dm, chat/group->group, channel->channel — telegram is the only platform that genuinely produces 'channel'). Capabilities: reply_to_available=true (reply_to int message_id); self_identity_reliable=true (is_self keyed off cached get_me() numeric id); addressing_first_class=false (recipients implicit in peer membership). structured_mentions=true as a PLATFORM CAPABILITY (message_entities exist by nature) EVEN THOUGH the current pipeline does not yet extract entities — so mentions=[] today while the capability stays TRUE to drive downstream weighting. Entity extraction is a telegram_tail.py follow-up, NOT this layer's scope.",
+  "raw_row": {
+    "id": "ulid_TGSTUB0000000000001",
+    "ts": "2026-03-01T18:30:00.000Z",
+    "source": "telegram",
+    "source_msg_id": "tg:-1001234567890:8842:0",
+    "parties": [
+      "88776655",
+      "user"
+    ],
+    "raw_content": {
+      "peer_type": "channel",
+      "peer_id": -1001234567890,
+      "peer_name": "Hub42 Announcements",
+      "message_id": 8842,
+      "sender_id": 88776655,
+      "sender_name": "Nadia K",
+      "is_outgoing": false,
+      "is_self": false,
+      "text": "Doors open at 7. @nadiak can you bring the headset cart?",
+      "media_type": null,
+      "reply_to": 8830,
+      "is_edit": false,
+      "edit_seq": 0
+    }
+  },
+  "expected_envelope": {
+    "platform": "telegram",
+    "thread_id": "-1001234567890",
+    "thread_type": "channel",
+    "sender": {
+      "id": "88776655",
+      "name": "Nadia K",
+      "kind": "person"
+    },
+    "recipients": [
+      "user"
+    ],
+    "is_from_me": false,
+    "ts": 1772562600000,
+    "content": "Doors open at 7. @nadiak can you bring the headset cart?",
+    "reply_to_id": "8830",
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": false
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": true,
+      "self_identity_reliable": true,
+      "addressing_first_class": false
+    },
+    "source_msg_id": "tg:-1001234567890:8842:0"
+  }
+}

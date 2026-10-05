@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "DROP",
+    "expected_reason": "placeholder_residual",
+    "note": "Production-shaped rule-11 casualty: genuinely human 1:1 mail whose body never resolved (body_resolved:false, text:''), modeling M1's 6,202-row would-pass pool. CURRENT behavior is DROP/placeholder_residual; M4's body-resolution fix flips this to PASS."
+  },
+  "row": {
+    "ts": "2026-07-01T15:38:27.000Z",
+    "source_msg_id": "fixture:mail-labeled/human-05",
+    "parties": [
+      "harper.quinlan@example.com",
+      "june.abioye@example.org"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "",
+      "subject": "Lease renewal question",
+      "headers": {
+        "from": "Harper Quinlan <harper.quinlan@example.com>",
+        "to": "June Abioye <june.abioye@example.org>",
+        "subject": "Lease renewal question",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": false,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": false,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

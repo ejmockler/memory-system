@@ -1,0 +1,13 @@
+325
+From: Bulk Sender <bulk@example.com>
+To: alex@example.com
+Subject: Community digest for this week
+Date: Mon, 1 Jun 2026 13:16:40 +0000
+Message-ID: <bulk-8@example.com>
+Precedence: bulk
+Content-Type: text/plain; charset=utf-8
+
+Here is the weekly digest of community posts.
+Read more on the community site whenever convenient.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

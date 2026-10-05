@@ -1,0 +1,80 @@
+[
+  {
+    "label": "missing_capabilities",
+    "notes": "The keystone bad shape. A valid-looking envelope with the entire capabilities{} block ABSENT. If this were accepted, the keystone would be decorative and the abstraction invariant unenforceable: an adapter that forgets to declare its degradation must NOT pass.",
+    "expect_reason_includes": "capabilities",
+    "envelope": {
+      "platform": "whatsapp",
+      "thread_id": "120363000000000001@g.us",
+      "thread_type": "group",
+      "sender": { "id": "100555010000002@lid", "name": "Sam" },
+      "recipients": ["user"],
+      "is_from_me": false,
+      "ts": 1766224800000,
+      "content": "hey",
+      "mentions": [],
+      "directed_at_me_signals": {
+        "mention_me": false,
+        "reply_to_me": false,
+        "addressed_to_me": false
+      },
+      "source_msg_id": "3A00A1B2C3D4E5F60718"
+    }
+  },
+  {
+    "label": "bad_thread_type",
+    "notes": "thread_type carries a value outside the closed enum (dm|group|channel). 'broadcast' is plausible but illegal; the enum is exact so the contract cannot quietly admit a per-platform shape.",
+    "expect_reason_includes": "thread_type",
+    "envelope": {
+      "platform": "imessage",
+      "thread_id": "any;-;+15555550125",
+      "thread_type": "broadcast",
+      "sender": { "id": "+15555550125", "name": null },
+      "recipients": ["user"],
+      "is_from_me": false,
+      "ts": 1673320520250,
+      "content": "lol same",
+      "mentions": [],
+      "directed_at_me_signals": {
+        "mention_me": false,
+        "reply_to_me": false,
+        "addressed_to_me": true
+      },
+      "capabilities": {
+        "reply_to_available": true,
+        "structured_mentions": false,
+        "self_identity_reliable": true,
+        "addressing_first_class": false
+      },
+      "source_msg_id": "0A1B2C3D-4E5F-4A6B-8C7D-9E0F1A2B3C4D"
+    }
+  },
+  {
+    "label": "noninteger_ts",
+    "notes": "ts carries the literal ISO-8601 string a raw WhatsApp row stamps, proving the integer-ms conversion contract: the adapter MUST convert ISO -> integer ms, and the validator MUST reject the un-converted string (else lexical sort breaks staleness downstream).",
+    "expect_reason_includes": "ts",
+    "envelope": {
+      "platform": "whatsapp",
+      "thread_id": "120363000000000001@g.us",
+      "thread_type": "group",
+      "sender": { "id": "100555010000002@lid", "name": "Sam" },
+      "recipients": ["user"],
+      "is_from_me": false,
+      "ts": "2025-12-20T10:00:00.000Z",
+      "content": "hey",
+      "mentions": [],
+      "directed_at_me_signals": {
+        "mention_me": false,
+        "reply_to_me": false,
+        "addressed_to_me": false
+      },
+      "capabilities": {
+        "reply_to_available": false,
+        "structured_mentions": false,
+        "self_identity_reliable": false,
+        "addressing_first_class": false
+      },
+      "source_msg_id": "3A00A1B2C3D4E5F60718"
+    }
+  }
+]

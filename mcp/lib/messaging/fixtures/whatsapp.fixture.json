@@ -1,0 +1,65 @@
+{
+  "platform": "whatsapp",
+  "stub": false,
+  "notes": "raw_row is a SYNTHETIC row in the storage/sources/whatsapp.jsonl ledger-row shape (every id, name, timestamp and text in it is invented) — a 1:1 INBOUND message (session_type=0, @lid linked-id, is_from_me=0). It is the WU-N3 1:1 PARTNER-NAME GAP case: ZWACHATSESSION.ZPARTNERNAME for this jid is only a formatted phone string (UNresolved), so the old 1:1 branch produced sender.name=null; the FIX adds a ZWAPROFILEPUSHNAME[from_jid] fallback, recovering the partner's self-set push name 'Jordan'. The expected_envelope below is the AFTER-FIX projection (adapter called with opts.pushByJid = {'100555010000001@lid':'Jordan'}). NOTE: the row deliberately carries NO sender_jid/sender_name/session_label/member_jid keys (the shape of rows written before the connector forward stamp) — the adapter tolerates their absence and resolves the sender externally. Capabilities are all FALSE (the maximally-degraded platform): ZPARENTMESSAGE always null (reply_to_available=false); mentions are text-embedded @<digits> with no structured field (structured_mentions=false); self-jid is @lid-masked (self_identity_reliable=false); no To/Cc envelope (addressing_first_class=false). Because the platform cannot tell, every directed_at_me_signals.* is false. The raw row stamps an ISO ts; the adapter converts to integer ms — expected_envelope.ts is the integer. reply_to_id is ABSENT on THIS row because this row has no reply target. The blanket claim that 'WhatsApp never stores a reply target' was FALSE and is removed: ZPARENTMESSAGE carries it on 2 store rows, and the contextInfo protobuf in ZWAMEDIAITEM.ZMETADATA carries it on hundreds more. capabilities.reply_to_available=false below is therefore a CARRIED DEFECT, not a platform fact -- it reflects what the adapter currently reads, and it is tracked as its own node.",
+  "name_sidecar": {
+    "pushByJid": {
+      "100555010000001@lid": "Jordan"
+    }
+  },
+  "raw_row": {
+    "id": "ulid_SYNTHWHATSAPP00001",
+    "ts": "2026-03-03T04:10:20.000Z",
+    "source": "whatsapp",
+    "source_msg_id": "3A00F1E2D3C4B5A69788",
+    "parties": [
+      "100555010000001@lid",
+      "user"
+    ],
+    "raw_content": {
+      "text": "Ok the new schedule works",
+      "from_jid": "100555010000001@lid",
+      "to_jid": null,
+      "session_jid": "100555010000001@lid",
+      "is_from_me": 0,
+      "message_type": 0,
+      "group_event_type": 2,
+      "session_type": 0,
+      "message_date_coredata": 794203820,
+      "has_media": false,
+      "media_local_path": null,
+      "media_title": null,
+      "starred": false,
+      "low_signal_message_type": false
+    }
+  },
+  "expected_envelope": {
+    "platform": "whatsapp",
+    "thread_id": "100555010000001@lid",
+    "thread_type": "dm",
+    "sender": {
+      "id": "100555010000001@lid",
+      "name": "Jordan",
+      "kind": "person"
+    },
+    "recipients": [
+      "user"
+    ],
+    "is_from_me": false,
+    "ts": 1772511020000,
+    "content": "Ok the new schedule works",
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": false
+    },
+    "capabilities": {
+      "reply_to_available": false,
+      "structured_mentions": false,
+      "self_identity_reliable": false,
+      "addressing_first_class": false
+    },
+    "source_msg_id": "3A00F1E2D3C4B5A69788"
+  }
+}

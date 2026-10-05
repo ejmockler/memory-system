@@ -1,0 +1,52 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "4-recipient mail stays thread_type=dm — multi-recipient is NOT promoted to group (N5 REVIEW R3)",
+  "notes": "To has three addresses + Cc has one = 4 recipients total. thread_type must stay 'dm'; audience breadth is carried by recipients[], NOT by promoting the thread to 'group'. Operator (alex@example.com) is one of the To recipients so addressed_to_me is true.",
+  "raw_mail_row": {
+    "source_msg_id": "<msg-multi-007@mail.example.com>",
+    "date_received": 1771061200,
+    "raw_content": {
+      "text": "Team, please review.",
+      "headers": {
+        "from": "Alice Example <alice@example.com>",
+        "to": "alex@example.com, bob@example.com, carol@example.com",
+        "cc": "dave@example.com",
+        "message-id": "<msg-multi-007@mail.example.com>"
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<msg-multi-007@mail.example.com>",
+    "thread_type": "dm",
+    "sender": {
+      "id": "alice@example.com",
+      "name": "Alice Example",
+      "kind": "person"
+    },
+    "recipients": [
+      "alex@example.com",
+      "bob@example.com",
+      "carol@example.com",
+      "dave@example.com"
+    ],
+    "is_from_me": false,
+    "ts": 1771061200000,
+    "content": "Team, please review.",
+    "reply_to_id": null,
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<msg-multi-007@mail.example.com>"
+  }
+}

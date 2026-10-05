@@ -1,0 +1,6 @@
+[
+  { "surface": "Example Project", "kind": "project" },
+  { "surface": "Example Labs", "kind": "org" },
+  { "surface": "tidepooling", "kind": "topic" },
+  { "surface": "Example Handbook", "kind": "artifact" }
+]

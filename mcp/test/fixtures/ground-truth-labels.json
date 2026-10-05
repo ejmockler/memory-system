@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "description": "Ground-truth labels for measuring precision/recall of corpus-reduction rules. See ground-truth-spec.md in this directory for the full population protocol, label definitions, stratified sampling plan, and PII-redaction guidance. Each entry in `labels` must be an object with the following fields: { source_msg_id: string, source: string, text_snippet: string (PII-redacted, max 200 chars), label: 'high_value' | 'low_value' | 'noise' | 'redundant' | 'broken', labeled_at: ISO-8601 string, labeler_notes: string | null }.",
+  "label_values": [
+    "high_value",
+    "low_value",
+    "noise",
+    "redundant",
+    "broken"
+  ],
+  "required_fields": [
+    "source_msg_id",
+    "source",
+    "text_snippet",
+    "label",
+    "labeled_at",
+    "labeler_notes"
+  ],
+  "target_size": 200,
+  "stratification": {
+    "sources": ["git-log", "imessage", "screentime", "github-events", "codex-cli"],
+    "per_source_count": 40,
+    "per_source_strata": {
+      "random": 10,
+      "high_structural_score": 10,
+      "dedup_candidates": 10,
+      "recent": 10
+    }
+  },
+  "labels": []
+}

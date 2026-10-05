@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "PASS",
+    "expected_reason": null,
+    "note": "Short 1:1 reply — under the 200-char structural cliff (short_reply band) but still a PASS decision."
+  },
+  "row": {
+    "ts": "2026-05-14T18:03:41.000Z",
+    "source_msg_id": "fixture:mail-labeled/human-02",
+    "parties": [
+      "rowan.okafor@example.org",
+      "maya.lindqvist74@example.com"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "Sounds great — see you at nine by the trailhead kiosk. I'll drive.",
+      "subject": "Re: Saturday hike + lunch after?",
+      "headers": {
+        "from": "Rowan Okafor <rowan.okafor@example.org>",
+        "to": "Maya Lindqvist <maya.lindqvist74@example.com>",
+        "subject": "Re: Saturday hike + lunch after?",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+# policy/ .gitignore — defense in depth. Nothing in this directory should
+# ever be committed: it contains signing keys, consumed-nonce audit logs,
+# policy-event streams, and distillation watermarks. All of these are
+# per-host runtime state, not source.
+#
+# The root <MEMORY_ROOT>/.gitignore already enumerates each
+# file pattern; this catch-all is the safety net for any future file added
+# under policy/ that a maintainer forgets to add to the root ignore.
+*
+!.gitignore

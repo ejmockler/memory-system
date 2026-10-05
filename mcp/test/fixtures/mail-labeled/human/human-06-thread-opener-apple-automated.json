@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "PASS",
+    "expected_reason": null,
+    "note": "A2 (memory-roots mail-admission-fix): the production thread-OPENER shape. Apple stamps automated_conversation=2 on any conversation with no reply yet (91% of the ledger), which pre-A2 Rule 9 dropped unconditionally — the 'Re:' replies came back ac=0 and PASSed. Unquoted person-shaped From, non-role local-part, Return-Path local == From local, resolved >=200-char prose, every list / noreply / ESP signal zeroed: ONLY Rule 9 can decide this row, so it fails iff the person-sender exemption regresses."
+  },
+  "row": {
+    "ts": "2026-09-04T02:02:23.000Z",
+    "source_msg_id": "fixture:mail-labeled/human-06",
+    "parties": [
+      "ingrid.solvang@example-lab.org",
+      "rowan.okafor@example.org"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "Hi Rowan, it was great meeting you at the open house on Saturday. I have been thinking about the microfluidics protocol you described and I think there is a real overlap with what our group is doing on droplet sorting. Would you be open to a short call next week to compare notes? I can send over the two papers I mentioned beforehand so we have something concrete to react to. Either Tuesday or Thursday afternoon works on my side, but I am flexible if another slot suits you better.",
+      "subject": "Following up from the open house",
+      "headers": {
+        "from": "Ingrid Solvang <ingrid.solvang@example-lab.org>",
+        "to": "Rowan Okafor <rowan.okafor@example.org>",
+        "subject": "Following up from the open house",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": "<ingrid.solvang@example-lab.org>",
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 2,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

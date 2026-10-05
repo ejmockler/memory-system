@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.queryd
+     Core. Query daemon that keeps the vector and lexical indexes warm for recall.
+     Deliberately has no RunAtLoad key and no PATH; KeepAlive alone starts it.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.queryd</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__NODE__</string>
+		<string>--max-old-space-size=8192</string>
+		<string>__MEMORY_ROOT__/mcp/daemon/queryd.js</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>MEMORY_ROOT</key>
+		<string>__MEMORY_ROOT__</string>
+		<key>QUERYD_MODEL_VERSIONS</key>
+		<string>qwen3-embedding-8b-fp16</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__</string>
+	<key>KeepAlive</key>
+	<true/>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/queryd.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/queryd.stderr</string>
+</dict>
+</plist>

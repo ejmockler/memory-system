@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.rerank-server
+     Core. Local reranker (Qwen3-Reranker-0.6B) on 127.0.0.1:8360, run from the
+     local-embedder virtualenv. HF_HUB_OFFLINE means the model must already be in the
+     Hugging Face cache; if the server is down recall degrades to its score sort.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.rerank-server</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__PYTHON_EMBED__</string>
+		<string>__MEMORY_ROOT__/local-embedder/rerank_server.py</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>RERANK_MODEL</key>
+		<string>Qwen/Qwen3-Reranker-0.6B</string>
+		<key>RERANK_PORT</key>
+		<string>8360</string>
+		<key>HF_HUB_OFFLINE</key>
+		<string>1</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__/local-embedder</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/local-embedder/logs/rerank-server.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/local-embedder/logs/rerank-server.stderr</string>
+</dict>
+</plist>

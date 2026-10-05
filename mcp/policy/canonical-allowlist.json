@@ -1,0 +1,150 @@
+{
+  "schema": "canonical-allowlist/v1",
+  "description": "R34 B12 + R35 M2 canonical-content-block lock. Each entry pins the sha256 of a marked CANONICAL block in the kb/ tree. mcp/scripts/canonical-block-scan.mjs verifies these in npm test. Any edit to the inner content of a block must (1) update the consumer named in 'consumers' to match the new content, then (2) update the sha256 here in the same change. Solo-edits to the allowlist that do not update consumers are a contract violation. R35 M2 extends coverage from one block to four: every machine-consumed KB region (formula, watermark schema, event-kind enum, health envelope) is now structurally protected.",
+  "blocks": {
+    "source_msg_id_formula": {
+      "sha256": "4115ed61a91f17a7b7b559eeea908b819c10dec80b5ec514d32c5630fcb55de9",
+      "file": "kb/build-plan.md",
+      "consumers": [
+        "mcp/test/source-msg-id-preimage.test.mjs"
+      ],
+      "rationale": "R34 CLOSE-1. The Phase-1 source_msg_id preimage formula was deleted from kb/build-plan.md in R32.1 commit 2c85d82 as a side-effect of stubbing Phase 1 with 'RETIRED (R32)'. The formula is still in force (cascade uses it for every per-source row identity). The consumer test extracts it via extractCanonical(buildPlanPath, 'source_msg_id_formula') and asserts byte-equality against the agent-integration.md inline-JSON form."
+    },
+    "source_msg_id_inline_formula": {
+      "sha256": "4115ed61a91f17a7b7b559eeea908b819c10dec80b5ec514d32c5630fcb55de9",
+      "file": "kb/agent-integration.md",
+      "consumers": [
+        "mcp/test/source-msg-id-preimage.test.mjs"
+      ],
+      "rationale": "R35 M2. The spec-spec preimage drift assertion previously used substring-match on the inline JSON form ('\"source_msg_id\": \"<sha256(...)>\"'); a future edit that reformatted the JSON template could silently break the spec-impl preimage assertion. This block carries the same formula in extractable form so the consumer test binds structurally on BOTH kb/build-plan.md and kb/agent-integration.md. sha256 identical to source_msg_id_formula by design \u2014 the formula IS the formula; two extracted blocks with the same content_sha256 means the two specs are in lockstep."
+    },
+    "watermark_state_schema_v1": {
+      "sha256": "47720b7c0e3fa9d1a2f03de45390b9afaa1f213ee24baacf492d8c98353d593a",
+      "file": "kb/agent-integration.md",
+      "consumers": [
+        "daemons/watermark.js"
+      ],
+      "rationale": "R35 M2. Current authoritative per-source watermark-state shape consumed by daemons/watermark.js (read/write atomic JSON file at <MEMORY_ROOT>/policy/watermark-state.json). The R32.1-class accident that deleted source_msg_id_formula would have been equally fatal here \u2014 a migrator stubbing 'Phase 1 RETIRED' could have deleted the watermark schema fence with prose. Wrapping prevents that class of structural drift."
+    },
+    "policy_event_kinds_table": {
+      "sha256": "6cbe7220468cedcac2e02e556a5aa2d26df82e551a139536ed3ba2ceadcb904d",
+      "file": "kb/agent-integration.md",
+      "consumers": [
+        "scripts/spec-sweep.mjs",
+        "mcp/test/daemon-token.test.mjs"
+      ],
+      "rationale": "R35 M2. Closed policy.* event-kind enum \u2014 the single source of truth for which producers emit which kinds. spec-sweep.mjs parseFrozenEventOwnership currently parses this table via anchor-text matching ('Token-event ownership table'); a heading rename or table-format change would silently break the ownership cross-check. Block-wrapping protects the table contract directly. Sha updated 2026-07-16: commit 04f7efe (2026-07-06) intentionally added the policy.salience.recall_feedback row with consumers in lockstep but missed this allowlist bump (caught when REGINT registered canonical-block-integrity into npm test)."
+    },
+    "health_envelope_schema_v1": {
+      "sha256": "70238e1fb3e2aa55c322cf3e856e225585545b394cabe361ca0befb0e1c7a224",
+      "file": "kb/mcp-surface.md",
+      "consumers": [
+        "mcp/test/health-real-data.test.mjs",
+        "mcp/lib/synthesis/coverage-probe.js",
+        "mcp/lib/tools/health.js"
+      ],
+      "rationale": "R35 M2. Authoritative closed field set for memory_health envelope. health-real-data.test.mjs currently hard-codes the expected field list; wrapping the spec block enables future structural extraction and locks the field set against silent KB drift now. Wave-10 update: added synthesis_coverage projection (F-SYN-OPERATIONAL-synthesis-coverage-probe) so operators can see whether the cascade is stamping entity/time_anchor/valence/episodicity features on new facts and whether recalls are populating scoringContext."
+    },
+    "phase3_v0_index_entry_shape": {
+      "sha256": "2802d1dfbcbe749c65a814bd752dd8fff8490e240e82df061af11f1c10b966e2",
+      "file": "kb/phase3-v0-contracts.md",
+      "consumers": [
+        "mcp/lib/recall-log.js",
+        "mcp/test/mmr.test.mjs",
+        "mcp/test/hard-gates.test.mjs",
+        "mcp/test/rerank.test.mjs",
+        "mcp/test/transitive-orphan.test.mjs",
+        "mcp/test/recall-log-persistence.test.mjs"
+      ],
+      "rationale": "R36 GAP-S1. Phase-3 v0 IndexEntry shape \u2014 the authoritative per-version-index row shape consumed by HNSW/BM25 indexers, hard-gates, and recall-log. Silent deletion or mutation would silently break every recall path. Wrapped in CANONICAL block so the B12 integrity gate fails closed."
+    },
+    "phase3_v0_score_components_shape": {
+      "sha256": "126dd4c5a7bf57fe507d19b38777e330353b5ef849b818083a7d0b6258ff6373",
+      "file": "kb/phase3-v0-contracts.md",
+      "consumers": [
+        "mcp/lib/recall-log.js",
+        "mcp/test/mmr.test.mjs",
+        "mcp/test/hard-gates.test.mjs",
+        "mcp/test/rerank.test.mjs",
+        "mcp/test/transitive-orphan.test.mjs",
+        "mcp/test/recall-log-persistence.test.mjs"
+      ],
+      "rationale": "R36 GAP-S1. Phase-3 v0 ScoreComponents shape \u2014 multiplicative-gate-plus-additive-soft-feature formula authoritative source. The exact weight names and gate sequence are load-bearing for the multi-feature scorer; silent edits would skew final_score across the entire recall pipeline."
+    },
+    "phase3_v0_recall_ledger_event_shape": {
+      "sha256": "aae9ccff42d309f56bbd381403ae3f4a09842f4fe389177600cbc5aafc1f9ed1",
+      "file": "kb/phase3-v0-contracts.md",
+      "consumers": [
+        "mcp/lib/recall-log.js",
+        "mcp/test/recall-log-persistence.test.mjs"
+      ],
+      "rationale": "R36 GAP-S1. Phase-3 v0 recall ledger event shape \u2014 the substrate for v3 Plackett-Luce off-policy evaluation. recall-log.js writes this shape into recall.jsonl; recall-log-persistence.test.mjs binds to it. Silent drift would invalidate every v3 OPE estimator."
+    },
+    "phase3_v0_predicate_snapshot_shape": {
+      "sha256": "8f5b1da61a3aeeca8ff76063afde6e4616ed0913b17ad877dc5a96bc05d6f0b6",
+      "file": "kb/phase3-v0-contracts.md",
+      "consumers": [
+        "mcp/test/hard-gates.test.mjs"
+      ],
+      "rationale": "R36 GAP-S1. Phase-3 v0 predicate snapshot shape \u2014 server-snapshot-at-exclude-time semantics for memory_exclude. Defines the coexistence rule between the legacy <=1536d predicate.embedding and the new 3072d query_embedding_3072 snapshot used by Layer 2 gating; structurally protected against KB drift."
+    },
+    "phase3_v1_recall_ledger_event_additions": {
+      "sha256": "b4903a7a1689f7ad3434ba31c912ba5ebb233df488132b5677837e7271468d16",
+      "file": "kb/phase3-v1-rerank-contracts.md",
+      "consumers": [
+        "mcp/lib/recall-log.js",
+        "mcp/test/rerank.test.mjs",
+        "mcp/test/recall-log-persistence.test.mjs"
+      ],
+      "rationale": "R36 GAP-S1. Phase-3 v1 recall-ledger ADDITIVE extensions \u2014 rerank_score per surfaced/pre-truncation item plus audit-provenance fields (instruction_hash, caps_snapshot, model_version). Locked because v1-of-v0 is the field set future OPE analyses depend on and silent drift would corrupt the rerank audit trail."
+    },
+    "phase3_v1_test_plan": {
+      "sha256": "9ac7f863f24ebedf213517e32d97b628960ef26a6519dc5a93decc54d1ada4e7",
+      "file": "kb/phase3-v1-rerank-contracts.md",
+      "consumers": [
+        "mcp/test/rerank.test.mjs"
+      ],
+      "rationale": "R36 GAP-S1. Phase-3 v1 rerank test plan \u2014 T1..T8 contract that rerank.test.mjs implements verbatim. Wrapping the plan structurally protects the bind between spec and impl; silent edits to the plan would create spec-impl drift undetectable by the npm-test gate."
+    },
+    "telegram_row_shape": {
+      "sha256": "64f6741573ac1910df6d975ddd145aabd92386331d943da7146901e4554557ca",
+      "file": "kb/connectors-phase2c.md",
+      "consumers": [
+        "mcp/lib/connectors/telegram.js",
+        "mcp/lib/ingest/stage0/telegram.js",
+        "mcp/test/telegram-connector.test.mjs"
+      ],
+      "rationale": "R38 Phase 2c. Canonical Telegram source-row shape emitted by mcp/lib/connectors/telegram.js. The shape is load-bearing for Stage-0 (raw_content key names), watermark Stage-0 dispatch (source field), and consent_basis taxonomy. Wrapped so a future edit to the per-row contract surfaces at the B13 integrity gate."
+    },
+    "slack_row_shape": {
+      "sha256": "8f97aa0a3c9eb18e2357789dca6661e11042a2342a85db4b88d249d51e53334e",
+      "file": "kb/connectors-phase2c.md",
+      "consumers": [
+        "mcp/lib/connectors/slack.js",
+        "mcp/lib/ingest/stage0/slack.js",
+        "mcp/test/slack-connector.test.mjs"
+      ],
+      "rationale": "R38 Phase 2c. Canonical Slack source-row shape emitted by mcp/lib/connectors/slack.js. The shape is load-bearing for Stage-0 (raw_content key names \u2014 is_bot/subtype/has_files), per-channel consent classification (channel_kind + consent_classification), and downstream source-tier corroboration (source_msg_id preimage). Wrapped so a future edit to the per-row contract surfaces at the B13 integrity gate."
+    },
+    "whatsapp_row_shape": {
+      "sha256": "98ca01725a4c8ea3e955aa363f70bb1f7b5266d9484fbedf37f68e82cc0df509",
+      "file": "kb/connectors-phase3.md",
+      "consumers": [
+        "mcp/lib/connectors/whatsapp.js",
+        "mcp/lib/ingest/stage0/whatsapp.js",
+        "mcp/test/whatsapp-connector.test.mjs"
+      ],
+      "rationale": "R39 Phase 3b. Canonical WhatsApp source-row shape emitted by mcp/lib/connectors/whatsapp.js. The shape is load-bearing for Stage-0 (raw_content key names \u2014 message_type/group_event_type/session_type/has_media), per-chat consent classification (session_type taxonomy), and reaction-as-derived-row stamping (parent_stanza_id \u2192 derived_from). Wrapped so a future edit to the per-row contract surfaces at the B13 integrity gate."
+    },
+    "mail_row_shape": {
+      "sha256": "08d2aacfeb4d2f06d2f3bdb5f8d16b83e45ac656794320129c1010f9750db017",
+      "file": "kb/connectors-phase3.md",
+      "consumers": [
+        "mcp/lib/connectors/mail.js",
+        "mcp/lib/ingest/stage0/mail.js",
+        "mcp/test/mail-connector.test.mjs"
+      ],
+      "rationale": "R39 Phase 3a. Canonical Apple Mail source-row shape emitted by mcp/lib/connectors/mail.js. The shape is load-bearing for Stage-0 (Apple-derived classifier columns unsubscribe_type / list_id_hash / automated_conversation / brand_indicator and the lowercased RFC header subset list-unsubscribe / list-id / auto-submitted / precedence / return-path / from), identity-map-based consent classification (parties[] derived from From/To/Cc), and downstream salience scoring (has_plain / has_html shape the html_only_discount in stage0/mail.js). Wrapping locks the per-row contract against KB drift."
+    }
+  }
+}

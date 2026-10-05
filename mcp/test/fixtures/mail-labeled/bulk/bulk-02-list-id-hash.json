@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "DROP",
+    "expected_reason": "list_id",
+    "note": "Rule 2: Apple list_id_hash non-null/non-zero (M1: 44,639 rows, 16.1%). The marker-flip falsifiability test clones this fixture and nulls list_id_hash."
+  },
+  "row": {
+    "ts": "2026-04-20T13:52:47.000Z",
+    "source_msg_id": "fixture:mail-labeled/bulk-02",
+    "parties": [
+      "digest@quillmark-writing-circle.example",
+      "fixture-operator@mail.fixture-host.example"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "This week in the circle: three new prompts, two critique threads looking for readers, and sign-ups for the open mic are now live.",
+      "subject": "Weekly digest: prompts, critiques, and the open mic",
+      "headers": {
+        "from": "Quillmark Writing Circle <digest@quillmark-writing-circle.example>",
+        "to": "fixture-operator@mail.fixture-host.example",
+        "subject": "Weekly digest: prompts, critiques, and the open mic",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": 7301256884120933,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

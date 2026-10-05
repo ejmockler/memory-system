@@ -1,0 +1,17 @@
+561
+From: Bob Example <bob@example.com>
+To: alex@example.com
+Subject: Re: design review
+Date: Mon, 1 Jun 2026 12:50:00 +0000
+Message-ID: <reply-4@example.com>
+Content-Type: text/plain; charset=utf-8
+
+I agree with the proposed approach. Two smaller modules will be easier to
+own, and the interface stays compact. Tell me which afternoon suits you.
+
+On Sun, 31 May 2026 14:00:00 +0000, Alex Example wrote:
+> Here is the design proposal for the new component split.
+> I would like to discuss this at the review meeting.
+> The main concerns are around the API surface.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

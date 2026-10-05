@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.telegram
+     Optional connector, stage 1 of the two-stage Telegram pipeline: the Python capture
+     that writes one line per event to the staging file. It keeps its own wrapper
+     (daemons/telegram-tail-run.sh), which sources the file named by TELEGRAM_ENV_FILE;
+     that is pointed at the shared config/secrets.env so one private file serves every
+     service. Needs a session file created once with telegram_login.py.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.telegram</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>__MEMORY_ROOT__/daemons/telegram-tail-run.sh</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>MEMORY_ROOT</key>
+		<string>__MEMORY_ROOT__</string>
+		<key>TELEGRAM_ENV_FILE</key>
+		<string>__MEMORY_ROOT__/config/secrets.env</string>
+		<key>TELEGRAM_STAGING_FILE</key>
+		<string>__MEMORY_ROOT__/storage/tmp/telegram-staging.jsonl</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__/mcp/lib/connectors/telegram</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>ThrottleInterval</key>
+	<integer>30</integer>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/telegram-tail.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/telegram-tail.stderr</string>
+</dict>
+</plist>

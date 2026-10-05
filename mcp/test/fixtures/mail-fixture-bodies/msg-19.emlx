@@ -1,0 +1,15 @@
+454
+From: Dana Example <dana@example.com>
+To: alex@example.com
+Subject: Re: quarterly planning thread
+Date: Tue, 2 Jun 2026 09:15:00 +0000
+Message-ID: <msg-19-child@example.com>
+In-Reply-To: <msg-19-parent@example.com>
+References: <msg-19-root@example.com>
+ <msg-19-parent@example.com>
+Content-Type: text/plain; charset=utf-8
+
+Confirming the dates on my side. I will bring the revised numbers to the
+planning session and we can walk the open items together.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

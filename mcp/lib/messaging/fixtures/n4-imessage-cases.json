@@ -1,0 +1,420 @@
+{
+  "platform": "imessage",
+  "notes": "N4 adapter case corpus — each entry is { raw_row (ledger-row shape from imessage.js:1059-1196), expected_envelope }. Hermetic: NO live chat.db. Filename intentionally NOT *.fixture.json so N1's _envelope_gate.js glob does not pick it up; this corpus is owned by the N4 test. Covers: inbound DM reply (reply_to present), outbound 1:1, outbound group (F7 chat_handle_join widened parties => recipients.length>=2), inbound group, inbound null-text tapback shell, legacy-empty outbound group (parties===['user'], parties_source stamped, recipients===[]).",
+  "cases": [
+    {
+      "label": "inbound_dm_reply",
+      "notes": "Mirrors N1's imessage.fixture.json: inbound 1:1 reply. thread_originator_guid -> reply_to_id. addressed_to_me=true (inbound). sender.name = the FORMATTED-NUMBER FLOOR (N11f) because the handle resolves to no contact (no stamped name, no ctx) — never null for a handle-bearing inbound row. reply_present.",
+      "raw_row": {
+        "ts": "2023-01-10T03:15:20.250Z",
+        "source_msg_id": "0A1B2C3D-4E5F-4A6B-8C7D-9E0F1A2B3C4D",
+        "parties": [
+          "+15555550125",
+          "user"
+        ],
+        "raw_content": {
+          "text": "lol same",
+          "handle_id": "+15555550125",
+          "chat_guid": "any;-;+15555550125",
+          "cache_roomnames": null,
+          "is_from_me": 0,
+          "thread_originator_guid": "1B2C3D4E-5F6A-4B7C-9D8E-0F1A2B3C4D5E",
+          "in_reply_to": "1B2C3D4E-5F6A-4B7C-9D8E-0F1A2B3C4D5E",
+          "participant_count": 2
+        }
+      },
+      "expected_envelope": {
+        "platform": "imessage",
+        "thread_id": "any;-;+15555550125",
+        "thread_type": "dm",
+        "sender": {
+          "id": "+15555550125",
+          "name": "+1 555 555 0125",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1673320520250,
+        "content": "lol same",
+        "reply_to_id": "1B2C3D4E-5F6A-4B7C-9D8E-0F1A2B3C4D5E",
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": true
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": false,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "0A1B2C3D-4E5F-4A6B-8C7D-9E0F1A2B3C4D"
+      }
+    },
+    {
+      "label": "inbound_dm_resolved_name",
+      "notes": "Inbound 1:1, NOT a reply (thread_originator_guid null => reply_to_id null). recovered_handle_name present (resolved contact) => sender.name populated WITHOUT any AddressBook re-query (adapter reads the stamped value).",
+      "raw_row": {
+        "ts": "2024-03-15T18:05:00.000Z",
+        "source_msg_id": "A1B2C3D4-0000-1111-2222-333344445555",
+        "parties": [
+          "+14155550199",
+          "user"
+        ],
+        "raw_content": {
+          "text": "on my way",
+          "handle_id": "+14155550199",
+          "chat_guid": "any;-;+14155550199",
+          "cache_roomnames": null,
+          "is_from_me": 0,
+          "thread_originator_guid": null,
+          "recovered_handle_name": "Dana Reyes",
+          "participant_count": 2
+        }
+      },
+      "expected_envelope": {
+        "platform": "imessage",
+        "thread_id": "any;-;+14155550199",
+        "thread_type": "dm",
+        "sender": {
+          "id": "+14155550199",
+          "name": "Dana Reyes",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1710525900000,
+        "content": "on my way",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": true
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": false,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "A1B2C3D4-0000-1111-2222-333344445555"
+      }
+    },
+    {
+      "label": "outbound_dm",
+      "notes": "Outbound 1:1 (is_from_me=1). sender => {id:'user',name:'user'}. recipients = parties minus 'user' = [handle_id]. addressed_to_me=false (operator is author). is_from_me strict boolean true.",
+      "raw_row": {
+        "ts": "2024-03-15T18:06:30.000Z",
+        "source_msg_id": "B2C3D4E5-1111-2222-3333-444455556666",
+        "parties": [
+          "user",
+          "+14155550199"
+        ],
+        "raw_content": {
+          "text": "see you soon",
+          "handle_id": "+14155550199",
+          "chat_guid": "any;-;+14155550199",
+          "cache_roomnames": null,
+          "is_from_me": 1,
+          "thread_originator_guid": null,
+          "participant_count": 2
+        }
+      },
+      "expected_envelope": {
+        "platform": "imessage",
+        "thread_id": "any;-;+14155550199",
+        "thread_type": "dm",
+        "sender": {
+          "id": "user",
+          "name": "user",
+          "kind": "person"
+        },
+        "recipients": [
+          "+14155550199"
+        ],
+        "is_from_me": true,
+        "ts": 1710525990000,
+        "content": "see you soon",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": false,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "B2C3D4E5-1111-2222-3333-444455556666"
+      }
+    },
+    {
+      "label": "outbound_group_f7_repaired",
+      "notes": "Outbound GROUP row. F7 chat_handle_join repair widened parties from ['user', handle?] to ['user', ...participants] (imessage.js:1165-1167) and stamped parties_source='chat_handle_join'. recipients = parties minus 'user' => length>=2 (the group_parties_ok SUCCESS case). thread_type=group via chat_guid /;[+-];chat\\d+/.",
+      "raw_row": {
+        "ts": "2025-02-01T09:30:00.000Z",
+        "source_msg_id": "C3D4E5F6-2222-3333-4444-555566667777",
+        "parties": [
+          "user",
+          "+14155550199",
+          "+13105550143",
+          "+12025550178"
+        ],
+        "raw_content": {
+          "text": "dinner at 7 works for me",
+          "handle_id": null,
+          "chat_guid": "any;+;chat1000000000000000023",
+          "cache_roomnames": null,
+          "is_from_me": 1,
+          "thread_originator_guid": null,
+          "parties_source": "chat_handle_join",
+          "participant_count": 4
+        }
+      },
+      "expected_envelope": {
+        "platform": "imessage",
+        "thread_id": "any;+;chat1000000000000000023",
+        "thread_type": "group",
+        "sender": {
+          "id": "user",
+          "name": "user",
+          "kind": "person"
+        },
+        "recipients": [
+          "+14155550199",
+          "+13105550143",
+          "+12025550178"
+        ],
+        "is_from_me": true,
+        "ts": 1738402200000,
+        "content": "dinner at 7 works for me",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": false,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "C3D4E5F6-2222-3333-4444-555566667777"
+      }
+    },
+    {
+      "label": "inbound_group_by_roomname",
+      "notes": "Inbound GROUP detected via cache_roomnames (non-empty string) — the FIRST OR-branch of isGroupChat. inbound => recipients=['user']. Null-text-safe: text present here. reply present (thread_originator_guid).",
+      "raw_row": {
+        "ts": "2025-02-01T09:31:15.000Z",
+        "source_msg_id": "D4E5F6A7-3333-4444-5555-666677778888",
+        "parties": [
+          "+13105550143",
+          "user"
+        ],
+        "raw_content": {
+          "text": "@ everyone 7 is good",
+          "handle_id": "+13105550143",
+          "chat_guid": "any;+;chat1000000000000000023",
+          "cache_roomnames": "Weekend Crew",
+          "is_from_me": 0,
+          "thread_originator_guid": "C3D4E5F6-2222-3333-4444-555566667777",
+          "recovered_handle_name": "Sam Park",
+          "participant_count": 4
+        }
+      },
+      "expected_envelope": {
+        "platform": "imessage",
+        "thread_id": "any;+;chat1000000000000000023",
+        "thread_type": "group",
+        "sender": {
+          "id": "+13105550143",
+          "name": "Sam Park",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1738402275000,
+        "content": "@ everyone 7 is good",
+        "reply_to_id": "C3D4E5F6-2222-3333-4444-555566667777",
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": true
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": false,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "D4E5F6A7-3333-4444-5555-666677778888"
+      }
+    },
+    {
+      "label": "inbound_null_text_tapback",
+      "notes": "Inbound tapback / status shell — raw_content.text is null (no decodable body). content MUST be null (legal). thread_type=dm. NOT a reply. source_msg_id is the rowid:N fallback form.",
+      "raw_row": {
+        "ts": "2025-02-01T09:32:00.000Z",
+        "source_msg_id": "rowid:884412",
+        "parties": [
+          "+14155550199",
+          "user"
+        ],
+        "raw_content": {
+          "text": null,
+          "handle_id": "+14155550199",
+          "chat_guid": "any;-;+14155550199",
+          "cache_roomnames": null,
+          "is_from_me": 0,
+          "thread_originator_guid": null,
+          "participant_count": 2
+        }
+      },
+      "expected_envelope": {
+        "platform": "imessage",
+        "thread_id": "any;-;+14155550199",
+        "thread_type": "dm",
+        "sender": {
+          "id": "+14155550199",
+          "name": "+1 415 555 0199",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1738402320000,
+        "content": null,
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": true
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": false,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "rowid:884412"
+      }
+    },
+    {
+      "label": "outbound_group_legacy_empty_f7",
+      "notes": "DOCUMENTED legacy-empty F7 case (imessage.js:1169-1174): outbound group row where the F7 lookup ran (parties_source stamped) but found NO participants, leaving parties===['user']. recipients => [] is LEGITIMATE here (and ONLY here). thread_type=group via chat_guid suffix. participant_count is 0 (unknown).",
+      "raw_row": {
+        "ts": "2025-02-01T09:33:45.000Z",
+        "source_msg_id": "E5F6A7B8-4444-5555-6666-777788889999",
+        "parties": [
+          "user"
+        ],
+        "raw_content": {
+          "text": "anyone there?",
+          "handle_id": null,
+          "chat_guid": "any;-;chat44557788990011223344",
+          "cache_roomnames": null,
+          "is_from_me": 1,
+          "thread_originator_guid": null,
+          "parties_source": "chat_handle_join",
+          "participant_count": 0
+        }
+      },
+      "expected_envelope": {
+        "platform": "imessage",
+        "thread_id": "any;-;chat44557788990011223344",
+        "thread_type": "group",
+        "sender": {
+          "id": "user",
+          "name": "user",
+          "kind": "person"
+        },
+        "recipients": [],
+        "is_from_me": true,
+        "ts": 1738402425000,
+        "content": "anyone there?",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": false,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "E5F6A7B8-4444-5555-6666-777788889999"
+      }
+    },
+    {
+      "label": "inbound_group_by_participant_count",
+      "notes": "Inbound GROUP detected via participant_count>2 (SECOND OR-branch) — cache_roomnames null AND chat_guid carries a handle (no chatNNNN suffix), so this row would be a DM but for participant_count=3. Proves the heuristic branch independence. sender.name = the FORMATTED-NUMBER FLOOR (N11f): no contact resolves, so the handle is shown as a readable number, never null/hash.",
+      "raw_row": {
+        "ts": "2025-02-01T10:00:00.000Z",
+        "source_msg_id": "F6A7B8C9-5555-6666-7777-88889999AAAA",
+        "parties": [
+          "+12025550178",
+          "user"
+        ],
+        "raw_content": {
+          "text": "got it",
+          "handle_id": "+12025550178",
+          "chat_guid": "any;-;+12025550178",
+          "cache_roomnames": null,
+          "is_from_me": 0,
+          "thread_originator_guid": null,
+          "participant_count": 3
+        }
+      },
+      "expected_envelope": {
+        "platform": "imessage",
+        "thread_id": "any;-;+12025550178",
+        "thread_type": "group",
+        "sender": {
+          "id": "+12025550178",
+          "name": "+1 202 555 0178",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1738404000000,
+        "content": "got it",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": true
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": false,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "F6A7B8C9-5555-6666-7777-88889999AAAA"
+      }
+    }
+  ]
+}

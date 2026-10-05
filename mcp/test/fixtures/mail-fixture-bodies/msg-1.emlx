@@ -1,0 +1,14 @@
+430
+From: Example Newsletter <newsletter@example.com>
+To: alex@example.com
+Subject: Weekly Newsletter
+Date: Mon, 1 Jun 2026 12:00:00 +0000
+Message-ID: <newsletter-1@example.com>
+List-Unsubscribe: <mailto:unsubscribe@example.com>
+List-Id: <weekly.newsletter.example.com>
+Content-Type: text/plain; charset=utf-8
+
+This week's newsletter content. Read about a thing. Click here to learn more.
+Visit our website. Forward this to a friend.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

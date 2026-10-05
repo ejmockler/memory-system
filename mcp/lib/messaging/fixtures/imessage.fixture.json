@@ -1,0 +1,57 @@
+{
+  "platform": "imessage",
+  "stub": false,
+  "notes": "raw_row is a SYNTHETIC row in the storage/sources/imessage.jsonl ledger-row shape (invented ids, handle, timestamp and text) carrying thread_originator_guid + in_reply_to (a reply). Capabilities: reply_to_available=true (thread_originator_guid -> in_reply_to, imessage.js:1127-1129) — the CONTRAST case vs WhatsApp; structured_mentions=false (no mention field); self_identity_reliable=true (numeric/unmasked handle_id); addressing_first_class=false (participants implicit, no To/Cc). handle_id is the sender.id; sender.name is null when the contact is unresolved (legal).",
+  "raw_row": {
+    "id": "ulid_SYNTHIMSG00000000001",
+    "ts": "2023-01-10T03:15:20.250Z",
+    "source": "imessage",
+    "source_msg_id": "0A1B2C3D-4E5F-4A6B-8C7D-9E0F1A2B3C4D",
+    "parties": [
+      "user",
+      "+15555550125"
+    ],
+    "raw_content": {
+      "text": "lol same",
+      "handle_id": "+15555550125",
+      "chat_guid": "any;-;+15555550125",
+      "cache_roomnames": null,
+      "is_from_me": 0,
+      "associated_message_type": 0,
+      "thread_originator_guid": "1B2C3D4E-5F6A-4B7C-9D8E-0F1A2B3C4D5E",
+      "in_reply_to": "1B2C3D4E-5F6A-4B7C-9D8E-0F1A2B3C4D5E",
+      "service": "iMessage",
+      "participant_count": 2
+    }
+  },
+  "expected_envelope": {
+    "platform": "imessage",
+    "thread_id": "any;-;+15555550125",
+    "thread_type": "dm",
+    "sender": {
+      "id": "+15555550125",
+      "name": null,
+      "kind": "person"
+    },
+    "recipients": [
+      "user"
+    ],
+    "is_from_me": false,
+    "ts": 1673320520250,
+    "content": "lol same",
+    "reply_to_id": "1B2C3D4E-5F6A-4B7C-9D8E-0F1A2B3C4D5E",
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": false
+    },
+    "source_msg_id": "0A1B2C3D-4E5F-4A6B-8C7D-9E0F1A2B3C4D"
+  }
+}

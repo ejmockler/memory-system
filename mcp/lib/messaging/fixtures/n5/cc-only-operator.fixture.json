@@ -1,0 +1,50 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "operator in Cc: ONLY (addressed_true) — Cc membership counts as addressing",
+  "notes": "Operator (alex@example.com) is on Cc, not To. Email addressing is first-class for Cc too, so addressed_to_me must be true.",
+  "raw_mail_row": {
+    "source_msg_id": "<msg-cc-only-003@mail.example.com>",
+    "date_received": 1771060700,
+    "raw_content": {
+      "text": "Looping you in for visibility.",
+      "headers": {
+        "from": "Alice Example <alice@example.com>",
+        "to": "bob@example.com",
+        "cc": "alex@example.com",
+        "message-id": "<msg-cc-only-003@mail.example.com>"
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<msg-cc-only-003@mail.example.com>",
+    "thread_type": "dm",
+    "sender": {
+      "id": "alice@example.com",
+      "name": "Alice Example",
+      "kind": "person"
+    },
+    "recipients": [
+      "bob@example.com",
+      "alex@example.com"
+    ],
+    "is_from_me": false,
+    "ts": 1771060700000,
+    "content": "Looping you in for visibility.",
+    "reply_to_id": null,
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<msg-cc-only-003@mail.example.com>"
+  }
+}

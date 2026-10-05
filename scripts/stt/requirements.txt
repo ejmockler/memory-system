@@ -1,0 +1,14 @@
+# scripts/stt/requirements.txt — pinned environment for stt_batch.py
+# (on-device voice-note transcription; Apple Silicon only, MLX).
+# Interpreter: see .python-version in this directory.
+#
+#   uv venv --python "$(cat scripts/stt/.python-version)" .venv-stt
+#   uv pip install --python .venv-stt/bin/python -r scripts/stt/requirements.txt
+
+# Imported by stt_batch.py.
+mlx-whisper==0.4.3
+numpy==2.5.3
+
+# Not imported by repo code: provides the `hf` CLI used by
+# scripts/download-models.sh to fetch the speech-to-text model.
+huggingface-hub==2.0.0

@@ -1,0 +1,39 @@
+name: CI
+
+# Pushes to main, and pull requests (a PR branch runs once, as a pull_request,
+# not again as a push).
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: npm test (Node ${{ matrix.node-version }})
+    runs-on: macos-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # First entry is the engines.node floor in mcp/package.json; the
+        # second is the tested version (see CONTRIBUTING.md).
+        node-version: ["22.18.0", "24.15.0"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: mcp/package-lock.json
+
+      - name: Install dependencies
+        working-directory: mcp
+        run: npm ci
+
+      - name: Run the test suites
+        working-directory: mcp
+        run: npm test

@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "DROP",
+    "expected_reason": "noreply_sender",
+    "note": "Rule 7: From matches the noreply pattern (M1: 48,805 rows, 17.6%). Apple columns zeroed so rules 1/2/9 cannot shadow."
+  },
+  "row": {
+    "ts": "2026-05-05T04:30:19.000Z",
+    "source_msg_id": "fixture:mail-labeled/bulk-07",
+    "parties": [
+      "no-reply@parceltrail-fixture.example",
+      "fixture-operator@mail.fixture-host.example"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "Your order 88-4127 is out for delivery and should arrive by end of day.",
+      "subject": "Your package is out for delivery",
+      "headers": {
+        "from": "ParcelTrail <no-reply@parceltrail-fixture.example>",
+        "to": "fixture-operator@mail.fixture-host.example",
+        "subject": "Your package is out for delivery",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": true,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

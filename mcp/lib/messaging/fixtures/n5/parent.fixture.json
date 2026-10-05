@@ -1,0 +1,49 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "the PARENT (thread root) of reply.fixture — its own Message-Id is the References root, so it shares thread_id with the reply",
+  "notes": "This message has no In-Reply-To/References (it is the root). thread_id falls back to its own Message-Id = <thread-root-100@...>, which equals reply.fixture's References-root thread_id. Proves a reply and its parent group under one thread_id.",
+  "raw_mail_row": {
+    "source_msg_id": "<thread-root-100@mail.example.com>",
+    "date_received": 1771060400,
+    "raw_content": {
+      "text": "Here is the Q1 plan draft.",
+      "headers": {
+        "from": "Alice Example <alice@example.com>",
+        "to": "alex@example.com",
+        "cc": null,
+        "message-id": "<thread-root-100@mail.example.com>"
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<thread-root-100@mail.example.com>",
+    "thread_type": "dm",
+    "sender": {
+      "id": "alice@example.com",
+      "name": "Alice Example",
+      "kind": "person"
+    },
+    "recipients": [
+      "alex@example.com"
+    ],
+    "is_from_me": false,
+    "ts": 1771060400000,
+    "content": "Here is the Q1 plan draft.",
+    "reply_to_id": null,
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<thread-root-100@mail.example.com>"
+  }
+}

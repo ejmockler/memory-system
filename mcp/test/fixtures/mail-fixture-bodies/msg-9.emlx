@@ -1,0 +1,13 @@
+353
+From: Discussion Member <member@example.com>
+To: list@example.com
+Subject: Re: thread topic
+Date: Mon, 1 Jun 2026 13:33:20 +0000
+Message-ID: <thread-9@example.com>
+List-Id: <discussion.list.example.com>
+Content-Type: text/plain; charset=utf-8
+
+Reply on the mailing list. Adding one comment to the thread.
+Replying inline below for the rest of the list.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

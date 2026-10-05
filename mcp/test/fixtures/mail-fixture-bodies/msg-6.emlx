@@ -1,0 +1,12 @@
+345
+From: Operator <alex@example.com>
+To: Bob Example <bob@example.com>
+Subject: Trip itinerary
+Date: Mon, 1 Jun 2026 13:23:20 +0000
+Message-ID: <out-6@example.com>
+Content-Type: text/plain; charset=utf-8
+
+Here is the trip itinerary for next weekend. Flight on Friday at 6pm,
+return on Sunday evening. I booked the hotel near the conference center.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

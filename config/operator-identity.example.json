@@ -1,0 +1,49 @@
+{
+  "schema": "operator-identity-config/v1",
+  "_comment": [
+    "Operator identity for this host: who counts as 'the operator' when connectors attribute rows.",
+    "Copy this file to config/operator-identity.json (untracked) and replace every value with your own,",
+    "or point MEMORY_OPERATOR_IDENTITY_FILE at a file of this shape anywhere on disk.",
+    "With no file, the identity is empty: nothing is attributed to you and one hint line goes to stderr.",
+    "A file that is not valid JSON, or has a field of the wrong type, stops the process at import.",
+    "The file is read once per process: restart the services after editing it.",
+    "Every field is optional and, unless noted, an array of strings. Keys not listed below",
+    "(such as this _comment, or description) are ignored."
+  ],
+  "description": {
+    "emails": "Every address you send mail or author commits as, including send-as aliases. Matched case-insensitively.",
+    "github_usernames": "Your GitHub user logins. Do not list organizations here.",
+    "github_orgs": "GitHub organizations you are a member of.",
+    "github_org_actor_logins": "Subset of github_orgs: org logins that count as you when they appear as the ACTOR of a GitHub event. Leave empty unless an org account acts on your behalf.",
+    "imessage_handles": "Apple-ID e-mail addresses or phone handles you use on iMessage.",
+    "phone_numbers": "Your phone numbers in E.164 form (leading +, digits only). Matched exactly.",
+    "hostname_derived_emails": "Subset of emails that git made up as user@hostname because user.email was not set. A warning fires when these author more than 5% of a week's commits.",
+    "hostname_derived_review_by": "ISO date (string) by which the hostname-derived entries should be reviewed, or null."
+  },
+  "emails": [
+    "alex@example.com",
+    "alex.example@example.org",
+    "alex@workstation.example.com"
+  ],
+  "github_usernames": [
+    "alex-example"
+  ],
+  "github_orgs": [
+    "example-org",
+    "example-labs"
+  ],
+  "github_org_actor_logins": [
+    "example-org"
+  ],
+  "imessage_handles": [
+    "alex@example.com",
+    "+15555550100"
+  ],
+  "phone_numbers": [
+    "+15555550100"
+  ],
+  "hostname_derived_emails": [
+    "alex@workstation.example.com"
+  ],
+  "hostname_derived_review_by": "2030-01-01"
+}

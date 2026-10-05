@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "DROP",
+    "expected_reason": "list_unsubscribe",
+    "note": "Rule 1: Apple unsubscribe_type > 0 (M1: 31,704 rows, 11.4%). Only this marker is set."
+  },
+  "row": {
+    "ts": "2026-04-11T08:14:02.000Z",
+    "source_msg_id": "fixture:mail-labeled/bulk-01",
+    "parties": [
+      "updates@ferrocity-cycling.example",
+      "fixture-operator@mail.fixture-host.example"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "The spring gravel lineup is live. Members get early access through Thursday.",
+      "subject": "New gravel frames just landed",
+      "headers": {
+        "from": "Ferrocity Cycling Club Store <updates@ferrocity-cycling.example>",
+        "to": "fixture-operator@mail.fixture-host.example",
+        "subject": "New gravel frames just landed",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 1,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "reply with In-Reply-To + References — reply_to_id resolves (In-Reply-To precedence); thread_id = References root; reply_to_me stays false (no faked L1 signal)",
+  "notes": "In-Reply-To preferred over References for reply_to_id. thread_id is the FIRST id of References (the chain root) so this reply shares a thread with its parent. reply_to_me is the HONEST per-row value (false): the adapter emits reply_to_id but cannot resolve the parent's sender at L1. Operator (alex@example.com) is in To, so addressed_to_me is true.",
+  "raw_mail_row": {
+    "source_msg_id": "<msg-reply-005@mail.example.com>",
+    "date_received": 1771060900,
+    "raw_content": {
+      "text": "Sounds good, see notes inline.",
+      "headers": {
+        "from": "Alice Example <alice@example.com>",
+        "to": "alex@example.com",
+        "cc": null,
+        "message-id": "<msg-reply-005@mail.example.com>",
+        "in-reply-to": "<parent-prev-101@mail.example.com>",
+        "references": "<thread-root-100@mail.example.com> <parent-prev-101@mail.example.com>"
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<thread-root-100@mail.example.com>",
+    "thread_type": "dm",
+    "sender": {
+      "id": "alice@example.com",
+      "name": "Alice Example",
+      "kind": "person"
+    },
+    "recipients": [
+      "alex@example.com"
+    ],
+    "is_from_me": false,
+    "ts": 1771060900000,
+    "content": "Sounds good, see notes inline.",
+    "reply_to_id": "<parent-prev-101@mail.example.com>",
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<msg-reply-005@mail.example.com>"
+  }
+}

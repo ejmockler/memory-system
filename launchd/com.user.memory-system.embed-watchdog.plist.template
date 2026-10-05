@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.embed-watchdog
+     Core. Every 30 seconds measures the embed-server memory footprint and restarts it
+     when it exceeds WATCHDOG_THRESHOLD_GB. WATCHDOG_LOG is set explicitly so the
+     script never falls back to its built-in default path.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.embed-watchdog</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>__MEMORY_ROOT__/daemons/embed-watchdog.sh</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>MEMORY_ROOT</key>
+		<string>__MEMORY_ROOT__</string>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>WATCHDOG_THRESHOLD_GB</key>
+		<string>45</string>
+		<key>WATCHDOG_LOG</key>
+		<string>__MEMORY_ROOT__/daemons/logs/embed-watchdog.log</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StartInterval</key>
+	<integer>30</integer>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/embed-watchdog.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/embed-watchdog.stderr</string>
+</dict>
+</plist>

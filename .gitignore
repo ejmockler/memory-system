@@ -1,0 +1,94 @@
+# What git should never pick up in this checkout.
+#
+# The checkout doubles as the default data root, so everything the server,
+# the services, the installer and the tests write at run time lands next to
+# the source. Those files hold your memories, your messages, keys and
+# credentials. The rules below keep all of it out of `git add`, while the
+# source code, tests, documentation and example files stay tracked.
+
+# ---------------------------------------------------------------------------
+# policy/: signing key, consumed-nonce log, policy events, recall context,
+# engagement queue, damping log, re-embed sweep state and their lock files.
+# All of it is written at run time. Only policy/.gitignore is source.
+# ---------------------------------------------------------------------------
+/policy/*
+!/policy/.gitignore
+# Named as well, so they stay ignored even if the catch-all above is edited:
+# the signing key, the consumed-nonce log and the policy event streams.
+policy/distillation-signing-key.json
+policy/distillation-state.json
+policy/*.lock
+policy/policy-events-*.jsonl
+consumed-nonces.jsonl
+
+# ---------------------------------------------------------------------------
+# Data the system stores: raw connector rows, ledgers, indexes, telemetry,
+# per-connector cursors and hook error logs.
+# ---------------------------------------------------------------------------
+storage/
+telemetry/
+ledgers/
+indices/
+hooks/hook-errors.jsonl
+hooks/.tmp/
+connectors/*/state.json
+# The top-level connectors/ directory is cursor and sidecar state. The leading
+# slash keeps mcp/lib/connectors/ and mcp/test/connectors/ (source) tracked.
+/connectors/
+
+# ---------------------------------------------------------------------------
+# Configuration and credentials that belong to one machine.
+# ---------------------------------------------------------------------------
+/config/*.json
+!/config/*.example.json
+/config/secrets.env
+.env
+.env.*
+!.env.example
+*.session
+*.pem
+# MCP client registrations name absolute paths on your machine.
+.mcp.json
+mcp/.mcp.json
+# Rendered launchd plists name your checkout and home directory.
+/launchd/rendered/
+
+# ---------------------------------------------------------------------------
+# Logs.
+# ---------------------------------------------------------------------------
+daemons/logs/
+local-embedder/logs/
+/logs/
+*.log
+
+# ---------------------------------------------------------------------------
+# Local databases.
+# ---------------------------------------------------------------------------
+*.sqlite
+*.db
+
+# ---------------------------------------------------------------------------
+# Dependencies, Python environments and model caches.
+# ---------------------------------------------------------------------------
+node_modules/
+mcp/node_modules/
+.venv/
+local-embedder/.venv/
+# Voice-note transcription environment (scripts/stt/).
+.venv-stt/
+**/__pycache__/
+*.pyc
+
+# ---------------------------------------------------------------------------
+# Claude Code worktrees and session state (nested git repositories).
+# ---------------------------------------------------------------------------
+.claude/
+
+# ---------------------------------------------------------------------------
+# Backups, operating-system files and editor leftovers.
+# ---------------------------------------------------------------------------
+*.r14-backup
+.DS_Store
+*.swp
+*.swo
+*~

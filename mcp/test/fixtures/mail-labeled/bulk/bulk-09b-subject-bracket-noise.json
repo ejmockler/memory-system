@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "DROP",
+    "expected_reason": "subject_bracket_noise",
+    "note": "Rule 9b: MTA/spam-filter bracket tag at subject start. All Apple columns and list headers zeroed so only 9b can fire."
+  },
+  "row": {
+    "ts": "2026-06-15T22:09:12.000Z",
+    "source_msg_id": "fixture:mail-labeled/bulk-09b",
+    "parties": [
+      "contact@velvetgrove-boutique.example",
+      "fixture-operator@mail.fixture-host.example"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "Exclusive replica timepieces at prices you will not believe. Limited stock, act now.",
+      "subject": "[SPAM] Unbeatable designer watch replicas inside",
+      "headers": {
+        "from": "Velvet Grove Boutique <contact@velvetgrove-boutique.example>",
+        "to": "fixture-operator@mail.fixture-host.example",
+        "subject": "[SPAM] Unbeatable designer watch replicas inside",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

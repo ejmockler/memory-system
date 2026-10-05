@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "DROP",
+    "expected_reason": "apple_automated",
+    "note": "Rule 9: Apple automated_conversation > 0 (M1's single largest killer: 146,072 rows, 52.6%). Every earlier signal zeroed so rule 9 gets exact attribution."
+  },
+  "row": {
+    "ts": "2026-06-08T02:17:36.000Z",
+    "source_msg_id": "fixture:mail-labeled/bulk-09",
+    "parties": [
+      "receipts@paylark-fixture.example",
+      "fixture-operator@mail.fixture-host.example"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "You sent 42.10 to Fernwood Hardware. View the transaction in your Paylark activity feed.",
+      "subject": "Your payment to Fernwood Hardware was sent",
+      "headers": {
+        "from": "Paylark Receipts <receipts@paylark-fixture.example>",
+        "to": "fixture-operator@mail.fixture-host.example",
+        "subject": "Your payment to Fernwood Hardware was sent",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 1,
+      "brand_indicator": 1,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

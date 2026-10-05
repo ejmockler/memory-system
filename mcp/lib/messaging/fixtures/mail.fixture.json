@@ -1,0 +1,58 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "notes": "STUB: storage/sources/mail.jsonl is NOT yet emitted. raw_row is HAND-BUILT from the mail.js raw_content/header shape (parties = From+To+Cc deduped+lowercased, mail.js:570-575; sender_is_bot/mailbox_url on raw_content; threading via In-Reply-To/References). Capabilities: addressing_first_class=true (To/Cc membership is an EXPLICIT first-class signal — the unique proof of the capabilities{} keystone, mail.js:570-575 + operator-identity.js:173); reply_to_available=true (In-Reply-To/References); structured_mentions=false (email has no @-mention primitive); self_identity_reliable=true (the operator's own addresses are canonically known).",
+  "raw_row": {
+    "id": "ulid_MAILSTUB000000000001",
+    "ts": "2026-02-14T09:15:00.000Z",
+    "source": "mail",
+    "source_msg_id": "<CABc123def456@mail.example.com>",
+    "parties": [
+      "sam@partner.example",
+      "alex@example.com",
+      "ops@partner.example"
+    ],
+    "raw_content": {
+      "subject": "Re: Q1 rollout plan",
+      "from": "Sam Partner <sam@partner.example>",
+      "to": "alex@example.com",
+      "cc": "ops@partner.example",
+      "in_reply_to": "<CAprev000@mail.example.com>",
+      "references": "<CAroot000@mail.example.com> <CAprev000@mail.example.com>",
+      "body_text": "Sounds good, see notes inline.",
+      "sender_is_bot": false,
+      "mailbox_url": "imap://alex@example.com/INBOX"
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<CAroot000@mail.example.com>",
+    "thread_type": "group",
+    "sender": {
+      "id": "sam@partner.example",
+      "name": "Sam Partner",
+      "kind": "person"
+    },
+    "recipients": [
+      "alex@example.com",
+      "ops@partner.example"
+    ],
+    "is_from_me": false,
+    "ts": 1771060500000,
+    "content": "Sounds good, see notes inline.",
+    "reply_to_id": "<CAprev000@mail.example.com>",
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<CABc123def456@mail.example.com>"
+  }
+}

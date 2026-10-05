@@ -1,0 +1,13 @@
+384
+From: Alice Example <alice@example.com>
+To: alex@example.com
+Subject: Coffee plans for tomorrow
+Date: Mon, 1 Jun 2026 12:16:40 +0000
+Message-ID: <abc-2@example.com>
+Content-Type: text/plain; charset=utf-8
+
+Hey, are we still on for coffee tomorrow at 10am at the usual place?
+I was thinking we could discuss the proposal you mentioned last week.
+Let me know if you need to reschedule.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

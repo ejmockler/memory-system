@@ -1,0 +1,13 @@
+386
+Return-Path: <bounce@mail123.mailchimp.com>
+From: Example Store <sales@example-store.example>
+To: alex@example.com
+Subject: Spring sale - 50 percent off
+Date: Mon, 1 Jun 2026 12:33:20 +0000
+Message-ID: <sale-3@example-store.example>
+Content-Type: text/plain; charset=utf-8
+
+Spring sale is on now. Get 50 percent off everything in store.
+Use code SPRING50 at checkout. Sale ends Sunday.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.embed-server
+     Core. Local embedding server (Qwen3-Embedding-8B) on 127.0.0.1:8359, run from the
+     local-embedder virtualenv. EMBED_RECYCLE_AFTER_REQUESTS bounds the accelerator memory
+     leak by recycling the model; embed-watchdog is the backstop. HF_HUB_OFFLINE means the
+     model must already be in the Hugging Face cache (scripts/download-models.sh); without
+     it the server exits and launchd restarts it rather than starting a ~14 GB download.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.embed-server</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__PYTHON_EMBED__</string>
+		<string>__MEMORY_ROOT__/local-embedder/embed_server.py</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>EMBED_HOST</key>
+		<string>127.0.0.1</string>
+		<key>EMBED_PORT</key>
+		<string>8359</string>
+		<key>EMBED_MODEL</key>
+		<string>Qwen/Qwen3-Embedding-8B</string>
+		<key>EMBED_MODEL_VERSION</key>
+		<string>qwen3-embedding-8b-fp16</string>
+		<key>EMBED_RECYCLE_AFTER_REQUESTS</key>
+		<string>128</string>
+		<key>HF_HUB_DISABLE_XET</key>
+		<string>1</string>
+		<key>HF_HUB_OFFLINE</key>
+		<string>1</string>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__/local-embedder</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>ThrottleInterval</key>
+	<integer>30</integer>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/local-embedder/logs/embed-server.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/local-embedder/logs/embed-server.stderr</string>
+</dict>
+</plist>

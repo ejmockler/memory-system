@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "PASS",
+    "expected_reason": null,
+    "note": "Family 1:1 mail from a personal-mailbox sender with a resolved body."
+  },
+  "row": {
+    "ts": "2026-06-02T09:47:15.000Z",
+    "source_msg_id": "fixture:mail-labeled/human-03",
+    "parties": [
+      "theodora.brankovic@example.org",
+      "sam.brankovic@example.com"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "Sam, quick update on the cabin weekend: Aunt Vesna confirmed she can host everyone Friday night, so we only need the rental for Saturday. Can you bring the folding table and the big coffee urn from the garage? Dad wants to do the cake at sunset on the deck. Also — do NOT tell Grandpa about the slideshow, it's a surprise.",
+      "subject": "Grandpa's birthday — cabin logistics",
+      "headers": {
+        "from": "Theodora Brankovic <theodora.brankovic@example.org>",
+        "to": "Sam Brankovic <sam.brankovic@example.com>",
+        "subject": "Grandpa's birthday — cabin logistics",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

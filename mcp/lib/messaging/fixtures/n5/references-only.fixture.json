@@ -1,0 +1,50 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "reply with References only (no In-Reply-To) — reply_to_id falls back to the LAST References id (immediate parent)",
+  "notes": "No In-Reply-To header. reply_to_id must fall back to the LAST id in References (References is oldest-first, so the last id is the immediate parent). thread_id is the FIRST References id (chain root).",
+  "raw_mail_row": {
+    "source_msg_id": "<msg-refs-only-006@mail.example.com>",
+    "date_received": 1771061000,
+    "raw_content": {
+      "text": "Adding one more thought.",
+      "headers": {
+        "from": "Alice Example <alice@example.com>",
+        "to": "alex@example.com",
+        "cc": null,
+        "message-id": "<msg-refs-only-006@mail.example.com>",
+        "references": "<thread-root-100@mail.example.com> <parent-prev-101@mail.example.com> <parent-prev-102@mail.example.com>"
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<thread-root-100@mail.example.com>",
+    "thread_type": "dm",
+    "sender": {
+      "id": "alice@example.com",
+      "name": "Alice Example",
+      "kind": "person"
+    },
+    "recipients": [
+      "alex@example.com"
+    ],
+    "is_from_me": false,
+    "ts": 1771061000000,
+    "content": "Adding one more thought.",
+    "reply_to_id": "<parent-prev-102@mail.example.com>",
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<msg-refs-only-006@mail.example.com>"
+  }
+}

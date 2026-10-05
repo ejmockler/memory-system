@@ -1,0 +1,48 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "orphan envelope row — no body, no document_id; source_msg_id falls back to rowid:<n> (mail.js:433-435)",
+  "notes": "No .emlx body resolved, document_id empty. The connector stamps source_msg_id = rowid:<n>. From is synthesized from the addresses-table header. content is null (no body). thread_id falls back to source_msg_id when there is no Message-Id / References / In-Reply-To. P1: the From local-part 'noreply' is a STRUCTURAL role address -> sender.kind 'service' (an automated, non-person channel) via the shared classifyStructural helper.",
+  "raw_mail_row": {
+    "rowid": 90210,
+    "document_id": "",
+    "date_received": 1771061100,
+    "raw_content": {
+      "headers": {
+        "from": "noreply@vendor.example",
+        "to": "alex@example.com",
+        "cc": null
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "rowid:90210",
+    "thread_type": "dm",
+    "sender": {
+      "id": "noreply@vendor.example",
+      "name": null,
+      "kind": "service"
+    },
+    "recipients": [
+      "alex@example.com"
+    ],
+    "is_from_me": false,
+    "ts": 1771061100000,
+    "content": null,
+    "reply_to_id": null,
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "rowid:90210"
+  }
+}

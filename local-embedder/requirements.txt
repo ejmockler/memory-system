@@ -1,0 +1,21 @@
+# local-embedder/requirements.txt — pinned environment for the embed server
+# (embed_server.py), the rerank server (rerank_server.py) and smoke_test.py.
+# Interpreter: see .python-version in this directory.
+#
+#   uv venv --python "$(cat .python-version)" .venv
+#   uv pip install --python .venv/bin/python -r requirements.txt
+
+# Imported by embed_server.py, rerank_server.py and smoke_test.py.
+numpy==2.4.6
+torch==2.12.1
+sentence-transformers==5.6.0
+transformers==5.12.1
+
+# Not imported by repo code: provides the `hf` CLI used by
+# scripts/download-models.sh to fetch the embedder and reranker weights.
+huggingface-hub==1.20.1
+
+# Not used by the embedder: the Telegram connector
+# (mcp/lib/connectors/telegram/telegram_tail.py, telegram_login.py) shares
+# this venv, so its one third-party dependency is pinned here.
+telethon==1.44.0

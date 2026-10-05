@@ -1,0 +1,2447 @@
+{
+  "meta": {
+    "node": "N8",
+    "purpose": "Sized labeled corpus for the attention-engine unanswered/closer gate.",
+    "labeling_rule": "needs-my-response (expect_surface=true) = inbound message is LAST in the thread (they spoke last) AND it is plausibly DIRECTED at me (DM prior, or a group mention/reply-to-me/first-class-addressing signal) AND its trailing inbound run carries a question/ask/request — NOT a pure closer (thanks!, ah cool!, perfect, sounds good, 👍, empty). Answered threads (I spoke last) and undirected group chatter are expect_surface=false. NOTE: for ANSWERED threads (I spoke last) and undirected/closer-shaped trailing chatter, expect_closer reflects the substance scorer over the trailing INBOUND run (an empty inbound run, or a short positive interjection, is a closer); these are don’t-care for the surface gate since unanswered/directed already gate them out.",
+    "count": 42,
+    "pinned_now_ts": 1700010140000
+  },
+  "threads": [
+    {
+      "id": "dm_q1",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000060000,
+          "content": "hey did you get a chance to look at the doc?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_1"
+        }
+      ]
+    },
+    {
+      "id": "dm_q2",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q2",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_q2"
+          ],
+          "is_from_me": true,
+          "ts": 1700000120000,
+          "content": "morning!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_2"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q2",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q2",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000180000,
+          "content": "can you send me the q3 deck?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_3"
+        }
+      ]
+    },
+    {
+      "id": "dm_q3",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q3",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q3",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000240000,
+          "content": "what time works for you tomorrow?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_4"
+        }
+      ]
+    },
+    {
+      "id": "dm_q4",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q4",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_q4"
+          ],
+          "is_from_me": true,
+          "ts": 1700000300000,
+          "content": "here you go",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_5"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q4",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q4",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000360000,
+          "content": "could you also share the budget sheet please",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_6"
+        }
+      ]
+    },
+    {
+      "id": "dm_q5",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q5",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q5",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000420000,
+          "content": "need your sign-off on the contract before EOD",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_7"
+        }
+      ]
+    },
+    {
+      "id": "dm_q6",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q6",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q6",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000480000,
+          "content": "are we still on for lunch",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_8"
+        }
+      ]
+    },
+    {
+      "id": "dm_q7",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q7",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q7",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000540000,
+          "content": "thoughts on the new logo?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_9"
+        }
+      ]
+    },
+    {
+      "id": "dm_q8",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q8",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_q8"
+          ],
+          "is_from_me": true,
+          "ts": 1700000600000,
+          "content": "got it",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_10"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q8",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q8",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000660000,
+          "content": "wait actually can you resend that link",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_11"
+        }
+      ]
+    },
+    {
+      "id": "dm_c1",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000720000,
+          "content": "can you send the file?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_12"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_c1"
+          ],
+          "is_from_me": true,
+          "ts": 1700000780000,
+          "content": "sent!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_13"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000840000,
+          "content": "thanks!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_14"
+        }
+      ]
+    },
+    {
+      "id": "dm_c2",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c2",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_c2"
+          ],
+          "is_from_me": true,
+          "ts": 1700000900000,
+          "content": "here is the deck",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_15"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c2",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c2",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700000960000,
+          "content": "ah cool!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_16"
+        }
+      ]
+    },
+    {
+      "id": "dm_c3",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c3",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_c3"
+          ],
+          "is_from_me": true,
+          "ts": 1700001020000,
+          "content": "done",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_17"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c3",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c3",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001080000,
+          "content": "perfect, thank you",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_18"
+        }
+      ]
+    },
+    {
+      "id": "dm_c4",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c4",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_c4"
+          ],
+          "is_from_me": true,
+          "ts": 1700001140000,
+          "content": "shipped it",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_19"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c4",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c4",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001200000,
+          "content": "sounds good",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_20"
+        }
+      ]
+    },
+    {
+      "id": "dm_c5",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c5",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_c5"
+          ],
+          "is_from_me": true,
+          "ts": 1700001260000,
+          "content": "all set",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_21"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c5",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c5",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001320000,
+          "content": "great",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_22"
+        }
+      ]
+    },
+    {
+      "id": "dm_c6",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c6",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_c6"
+          ],
+          "is_from_me": true,
+          "ts": 1700001380000,
+          "content": "fixed",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_23"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c6",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c6",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001440000,
+          "content": "nice, thanks!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_24"
+        }
+      ]
+    },
+    {
+      "id": "dm_c7",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c7",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_c7"
+          ],
+          "is_from_me": true,
+          "ts": 1700001500000,
+          "content": "there you go",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_25"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c7",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c7",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001560000,
+          "content": "👍",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_26"
+        }
+      ]
+    },
+    {
+      "id": "dm_c8",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c8",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_c8"
+          ],
+          "is_from_me": true,
+          "ts": 1700001620000,
+          "content": "updated the doc",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_27"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_c8",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_c8",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001680000,
+          "content": "ok cool",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_28"
+        }
+      ]
+    },
+    {
+      "id": "dm_cq1",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_cq1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_cq1"
+          ],
+          "is_from_me": true,
+          "ts": 1700001740000,
+          "content": "sent the invite",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_29"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_cq1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_cq1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001800000,
+          "content": "thanks!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_30"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_cq1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_cq1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001860000,
+          "content": "actually wait can you move it to 3pm?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_31"
+        }
+      ]
+    },
+    {
+      "id": "dm_qc1",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_qc1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_qc1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700001920000,
+          "content": "can you send the file?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_32"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_qc1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_qc1"
+          ],
+          "is_from_me": true,
+          "ts": 1700001980000,
+          "content": "here",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_33"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_qc1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_qc1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002040000,
+          "content": "perfect thanks",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_34"
+        }
+      ]
+    },
+    {
+      "id": "dm_a1",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": false,
+        "expect_directed": false,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_a1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_a1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002100000,
+          "content": "can you review the PR?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_35"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_a1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_a1"
+          ],
+          "is_from_me": true,
+          "ts": 1700002160000,
+          "content": "yes on it now",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_36"
+        }
+      ]
+    },
+    {
+      "id": "dm_a2",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": false,
+        "expect_directed": false,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_a2",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_a2",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002220000,
+          "content": "what is the status?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_37"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_a2",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_a2"
+          ],
+          "is_from_me": true,
+          "ts": 1700002280000,
+          "content": "shipping tonight",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_38"
+        }
+      ]
+    },
+    {
+      "id": "dm_a3",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": false,
+        "expect_directed": false,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_a3",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_a3"
+          ],
+          "is_from_me": true,
+          "ts": 1700002340000,
+          "content": "hey are you around?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_39"
+        }
+      ]
+    },
+    {
+      "id": "dm_a4",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": false,
+        "expect_directed": false,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_a4",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_a4",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002400000,
+          "content": "thanks!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_40"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_a4",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_a4"
+          ],
+          "is_from_me": true,
+          "ts": 1700002460000,
+          "content": "anytime",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_41"
+        }
+      ]
+    },
+    {
+      "id": "g_q1",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_q1",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_q1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002520000,
+          "content": "@user can you own the launch checklist?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": true,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_42"
+        }
+      ]
+    },
+    {
+      "id": "g_q2",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_q2",
+          "thread_type": "group",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_g_q2"
+          ],
+          "is_from_me": true,
+          "ts": 1700002580000,
+          "content": "draft is in the folder",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_43"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "g_q2",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_q2",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002640000,
+          "content": "can you add the appendix?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": true,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_44"
+        }
+      ]
+    },
+    {
+      "id": "g_q3",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_q3",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_q3",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002700000,
+          "content": "when can you present?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": true
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": true
+          },
+          "source_msg_id": "smid_45"
+        }
+      ]
+    },
+    {
+      "id": "g_q4",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_q4",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_q4",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002760000,
+          "content": "@user what is the eta?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": true,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_46"
+        }
+      ]
+    },
+    {
+      "id": "g_u1",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": false,
+        "expect_closer": false,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_u1",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_u1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002820000,
+          "content": "lol that meeting ran long",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_47"
+        }
+      ]
+    },
+    {
+      "id": "g_u2",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": false,
+        "expect_closer": false,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_u2",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_u2",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002880000,
+          "content": "anyone else seeing the bug?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_48"
+        }
+      ]
+    },
+    {
+      "id": "g_u3",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": false,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_u3",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_u3",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700002940000,
+          "content": "great work everyone",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_49"
+        }
+      ]
+    },
+    {
+      "id": "g_u4",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": false,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_u4",
+          "thread_type": "group",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_g_u4"
+          ],
+          "is_from_me": true,
+          "ts": 1700003000000,
+          "content": "posting the recap",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_50"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "g_u4",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_u4",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003060000,
+          "content": "haha yeah",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_51"
+        }
+      ]
+    },
+    {
+      "id": "g_c1",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_c1",
+          "thread_type": "group",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_g_c1"
+          ],
+          "is_from_me": true,
+          "ts": 1700003120000,
+          "content": "shared the slides",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_52"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "g_c1",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_c1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003180000,
+          "content": "thanks!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": true,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_53"
+        }
+      ]
+    },
+    {
+      "id": "g_c2",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_c2",
+          "thread_type": "group",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_g_c2"
+          ],
+          "is_from_me": true,
+          "ts": 1700003240000,
+          "content": "sent over the notes",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_54"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "g_c2",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_c2",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003300000,
+          "content": "@user perfect, appreciate it",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": true,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_55"
+        }
+      ]
+    },
+    {
+      "id": "g_c3",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_c3",
+          "thread_type": "group",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_g_c3"
+          ],
+          "is_from_me": true,
+          "ts": 1700003360000,
+          "content": "done",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_56"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "g_c3",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_c3",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003420000,
+          "content": "ah cool!",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": true,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_57"
+        }
+      ]
+    },
+    {
+      "id": "g_q5",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_q5",
+          "thread_type": "group",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_g_q5"
+          ],
+          "is_from_me": true,
+          "ts": 1700003480000,
+          "content": "the api is ready",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_58"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "g_q5",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_q5",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003540000,
+          "content": "could you document the auth flow?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": true,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_59"
+        }
+      ]
+    },
+    {
+      "id": "g_a1",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": false,
+        "expect_directed": false,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_a1",
+          "thread_type": "group",
+          "sender": {
+            "id": "peer_g_a1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003600000,
+          "content": "@user can you take this?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": true,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_60"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "g_a1",
+          "thread_type": "group",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_g_a1"
+          ],
+          "is_from_me": true,
+          "ts": 1700003660000,
+          "content": "yep got it",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_61"
+        }
+      ]
+    },
+    {
+      "id": "g_a2",
+      "thread_type": "group",
+      "label": {
+        "expect_unanswered": false,
+        "expect_directed": false,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "g_a2",
+          "thread_type": "group",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_g_a2"
+          ],
+          "is_from_me": true,
+          "ts": 1700003720000,
+          "content": "closing this out",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_62"
+        }
+      ]
+    },
+    {
+      "id": "dm_q9",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q9",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q9",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003780000,
+          "content": "did you finish the report",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_63"
+        }
+      ]
+    },
+    {
+      "id": "dm_q10",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q10",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q10",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003840000,
+          "content": "please review the design when you can",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_64"
+        }
+      ]
+    },
+    {
+      "id": "dm_q11",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q11",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q11",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003900000,
+          "content": "how should we handle the refund case?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_65"
+        }
+      ]
+    },
+    {
+      "id": "dm_q12",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_q12",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_q12",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700003960000,
+          "content": "can we hop on a quick call?",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_66"
+        }
+      ]
+    },
+    {
+      "id": "dm_s1",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": false,
+        "expect_surface": true
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_s1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_s1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700004020000,
+          "content": "the client just escalated the billing issue and they want a full breakdown of the charges by tomorrow morning",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_67"
+        }
+      ]
+    },
+    {
+      "id": "dm_e1",
+      "thread_type": "dm",
+      "label": {
+        "expect_unanswered": true,
+        "expect_directed": true,
+        "expect_closer": true,
+        "expect_surface": false
+      },
+      "envelopes": [
+        {
+          "platform": "source_a",
+          "thread_id": "dm_e1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "user",
+            "name": "user"
+          },
+          "recipients": [
+            "peer_dm_e1"
+          ],
+          "is_from_me": true,
+          "ts": 1700004080000,
+          "content": "here is the doc",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_68"
+        },
+        {
+          "platform": "source_a",
+          "thread_id": "dm_e1",
+          "thread_type": "dm",
+          "sender": {
+            "id": "peer_dm_e1",
+            "name": null
+          },
+          "recipients": [
+            "user"
+          ],
+          "is_from_me": false,
+          "ts": 1700004140000,
+          "content": "",
+          "mentions": [],
+          "directed_at_me_signals": {
+            "mention_me": false,
+            "reply_to_me": false,
+            "addressed_to_me": false
+          },
+          "capabilities": {
+            "reply_to_available": true,
+            "structured_mentions": true,
+            "self_identity_reliable": true,
+            "addressing_first_class": false
+          },
+          "source_msg_id": "smid_69"
+        }
+      ]
+    }
+  ]
+}

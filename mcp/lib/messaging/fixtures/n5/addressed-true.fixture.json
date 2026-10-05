@@ -1,0 +1,49 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "operator-in-To (addressed_true) — the first-class addressing signal fires",
+  "notes": "Synthetic non-operator parties (alice@example.com); operator address (alex@example.com) is listed in the synthetic operator-identity test config (mcp/test/fixtures/operator-identity.synthetic.json) so isOperatorEmail actually fires. date_received is unix SECONDS (Apple Envelope Index); expected ts = seconds*1000.",
+  "raw_mail_row": {
+    "source_msg_id": "<msg-addr-true-001@mail.example.com>",
+    "date_received": 1771060500,
+    "raw_content": {
+      "text": "Can you review the Q1 plan?",
+      "headers": {
+        "from": "Alice Example <alice@example.com>",
+        "to": "alex@example.com",
+        "cc": null,
+        "message-id": "<msg-addr-true-001@mail.example.com>"
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<msg-addr-true-001@mail.example.com>",
+    "thread_type": "dm",
+    "sender": {
+      "id": "alice@example.com",
+      "name": "Alice Example",
+      "kind": "person"
+    },
+    "recipients": [
+      "alex@example.com"
+    ],
+    "is_from_me": false,
+    "ts": 1771060500000,
+    "content": "Can you review the Q1 plan?",
+    "reply_to_id": null,
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": true
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<msg-addr-true-001@mail.example.com>"
+  }
+}

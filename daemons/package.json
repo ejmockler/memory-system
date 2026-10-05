@@ -1,0 +1,7 @@
+{
+  "name": "memory-daemons",
+  "version": "0.0.1",
+  "description": "Long-lived daemons for the memory system (watermark, distillation supervisor).",
+  "type": "module",
+  "private": true
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.slack-connector
+     Optional connector. Every 10 minutes runs one Slack poll (the once flag). Launched
+     through run-with-env.sh: the user token and workspace ids live in
+     config/secrets.env, never in this file.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.slack-connector</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>__MEMORY_ROOT__/launchd/run-with-env.sh</string>
+		<string>__NODE__</string>
+		<string>__MEMORY_ROOT__/mcp/lib/connectors/slack.js</string>
+		<string>--once</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>MEMORY_ROOT</key>
+		<string>__MEMORY_ROOT__</string>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>SLACK_POLL_INTERVAL_SECONDS</key>
+		<string>600</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StartInterval</key>
+	<integer>600</integer>
+	<key>ThrottleInterval</key>
+	<integer>30</integer>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/slack-connector.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/slack-connector.stderr</string>
+</dict>
+</plist>

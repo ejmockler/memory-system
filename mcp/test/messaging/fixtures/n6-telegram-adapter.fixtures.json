@@ -1,0 +1,473 @@
+{
+  "_doc": "N6 hand-written Telegram adapter Envelope fixtures. Each entry is a {label, raw, expected} pair. `raw` is a connector row wrapper (telegram.js buildRow shape: {source_msg_id, ts, parties, raw_content, content}); `expected` is the Envelope _toEnvelope must produce. These exercise the adapter against the SAME wire field set the live pipeline emits (telegram.js:306-339), extended with one `entities` row (the mention case the staging pipeline does not yet emit — MAP Q4). All ids are tg:-namespaced (REVIEW R5). This corpus is OWNED by N6 and is independent of mcp/lib/messaging/fixtures/telegram.fixture.json (the N1 stub).",
+  "fixtures": [
+    {
+      "label": "dm_in",
+      "raw": {
+        "source_msg_id": "tg_dmin00000000000000000000000001",
+        "ts": "2026-06-06T10:00:00.000Z",
+        "parties": [
+          "Dana Vox",
+          "user"
+        ],
+        "content": "hey are we still on for 7?",
+        "raw_content": {
+          "peer_type": "user",
+          "peer_id": 55501,
+          "peer_name": "Dana Vox",
+          "message_id": 9001,
+          "sender_id": 55501,
+          "sender_name": "Dana Vox",
+          "is_outgoing": false,
+          "is_self": false,
+          "text": "hey are we still on for 7?",
+          "media_type": null,
+          "reply_to": null,
+          "is_edit": false,
+          "edit_seq": 0
+        }
+      },
+      "expected": {
+        "platform": "telegram",
+        "thread_id": "tg:55501",
+        "thread_type": "dm",
+        "sender": {
+          "id": "tg:55501",
+          "name": "Dana Vox",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1780740000000,
+        "content": "hey are we still on for 7?",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": true
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": true,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "tg_dmin00000000000000000000000001"
+      }
+    },
+    {
+      "label": "dm_out",
+      "raw": {
+        "source_msg_id": "tg_dmout0000000000000000000000001",
+        "ts": "2026-06-06T10:01:30.000Z",
+        "parties": [
+          "user",
+          "Dana Vox"
+        ],
+        "content": "yep, see you then",
+        "raw_content": {
+          "peer_type": "user",
+          "peer_id": 55501,
+          "peer_name": "Dana Vox",
+          "message_id": 9002,
+          "sender_id": 70000,
+          "sender_name": null,
+          "is_outgoing": true,
+          "is_self": false,
+          "text": "yep, see you then",
+          "media_type": null,
+          "reply_to": 9001,
+          "is_edit": false,
+          "edit_seq": 0
+        }
+      },
+      "expected": {
+        "platform": "telegram",
+        "thread_id": "tg:55501",
+        "thread_type": "dm",
+        "sender": {
+          "id": "user",
+          "name": "user",
+          "kind": "person"
+        },
+        "recipients": [
+          "tg:55501"
+        ],
+        "is_from_me": true,
+        "ts": 1780740090000,
+        "content": "yep, see you then",
+        "reply_to_id": "tg:55501:9001",
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": true,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "tg_dmout0000000000000000000000001"
+      }
+    },
+    {
+      "label": "group_in",
+      "raw": {
+        "source_msg_id": "tg_grpin0000000000000000000000001",
+        "ts": "2026-06-06T11:15:00.000Z",
+        "parties": [
+          "Priya N",
+          "Lab Crew"
+        ],
+        "content": "moved the cart to bay 3",
+        "raw_content": {
+          "peer_type": "group",
+          "peer_id": -445566,
+          "peer_name": "Lab Crew",
+          "message_id": 312,
+          "sender_id": 88001,
+          "sender_name": "Priya N",
+          "is_outgoing": false,
+          "is_self": false,
+          "text": "moved the cart to bay 3",
+          "media_type": null,
+          "reply_to": null,
+          "is_edit": false,
+          "edit_seq": 0
+        }
+      },
+      "expected": {
+        "platform": "telegram",
+        "thread_id": "tg:-445566",
+        "thread_type": "group",
+        "sender": {
+          "id": "tg:88001",
+          "name": "Priya N",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1780744500000,
+        "content": "moved the cart to bay 3",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": true,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "tg_grpin0000000000000000000000001"
+      }
+    },
+    {
+      "label": "supergroup_to_group",
+      "raw": {
+        "source_msg_id": "tg_sgrp00000000000000000000000001",
+        "ts": "2026-06-06T12:00:00.000Z",
+        "parties": [
+          "Marcus",
+          "Hub42 Builders"
+        ],
+        "content": "shipping the demo build tonight",
+        "raw_content": {
+          "peer_type": "supergroup",
+          "peer_id": -1009988776655,
+          "peer_name": "Hub42 Builders",
+          "message_id": 77,
+          "sender_id": 90210,
+          "sender_name": "Marcus",
+          "is_outgoing": false,
+          "is_self": false,
+          "text": "shipping the demo build tonight",
+          "media_type": null,
+          "reply_to": null,
+          "is_edit": false,
+          "edit_seq": 0
+        }
+      },
+      "expected": {
+        "platform": "telegram",
+        "thread_id": "tg:-1009988776655",
+        "thread_type": "group",
+        "sender": {
+          "id": "tg:90210",
+          "name": "Marcus",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1780747200000,
+        "content": "shipping the demo build tonight",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": true,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "tg_sgrp00000000000000000000000001"
+      }
+    },
+    {
+      "label": "channel_with_reply",
+      "raw": {
+        "source_msg_id": "tg_chan00000000000000000000000001",
+        "ts": "2026-03-01T18:30:00.000Z",
+        "parties": [
+          "Hub42 Announcements"
+        ],
+        "content": "Doors open at 7.",
+        "raw_content": {
+          "peer_type": "channel",
+          "peer_id": -1001234567890,
+          "peer_name": "Hub42 Announcements",
+          "message_id": 8842,
+          "sender_id": 88776655,
+          "sender_name": "Nadia K",
+          "is_outgoing": false,
+          "is_self": false,
+          "text": "Doors open at 7.",
+          "media_type": null,
+          "reply_to": 8830,
+          "is_edit": false,
+          "edit_seq": 0
+        }
+      },
+      "expected": {
+        "platform": "telegram",
+        "thread_id": "tg:-1001234567890",
+        "thread_type": "channel",
+        "sender": {
+          "id": "tg:88776655",
+          "name": "Nadia K",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1772389800000,
+        "content": "Doors open at 7.",
+        "reply_to_id": "tg:-1001234567890:8830",
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": true,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "tg_chan00000000000000000000000001"
+      }
+    },
+    {
+      "label": "group_with_mention_entity",
+      "raw": {
+        "source_msg_id": "tg_ment00000000000000000000000001",
+        "ts": "2026-06-06T13:30:00.000Z",
+        "parties": [
+          "Sam",
+          "Lab Crew"
+        ],
+        "content": "can you take this one?",
+        "raw_content": {
+          "peer_type": "group",
+          "peer_id": -445566,
+          "peer_name": "Lab Crew",
+          "message_id": 318,
+          "sender_id": 88002,
+          "sender_name": "Sam",
+          "is_outgoing": false,
+          "is_self": false,
+          "text": "can you take this one?",
+          "media_type": null,
+          "reply_to": null,
+          "entities": [
+            {
+              "_": "MessageEntityMentionName",
+              "offset": 0,
+              "length": 0,
+              "user_id": 7
+            }
+          ],
+          "is_edit": false,
+          "edit_seq": 0
+        }
+      },
+      "expected": {
+        "platform": "telegram",
+        "thread_id": "tg:-445566",
+        "thread_type": "group",
+        "sender": {
+          "id": "tg:88002",
+          "name": "Sam",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1780752600000,
+        "content": "can you take this one?",
+        "reply_to_id": null,
+        "mentions": [
+          {
+            "id": "tg:7",
+            "name": null
+          }
+        ],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": true,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "tg_ment00000000000000000000000001"
+      }
+    },
+    {
+      "label": "dm_self_second_device",
+      "raw": {
+        "source_msg_id": "tg_self00000000000000000000000001",
+        "ts": "2026-06-06T14:00:00.000Z",
+        "parties": [
+          "user",
+          "Dana Vox"
+        ],
+        "content": "note to self: pick up the cart",
+        "raw_content": {
+          "peer_type": "user",
+          "peer_id": 55501,
+          "peer_name": "Dana Vox",
+          "message_id": 9100,
+          "sender_id": 70000,
+          "sender_name": "Nadia (me)",
+          "is_outgoing": false,
+          "is_self": true,
+          "text": "note to self: pick up the cart",
+          "media_type": null,
+          "reply_to": null,
+          "is_edit": false,
+          "edit_seq": 0
+        }
+      },
+      "expected": {
+        "platform": "telegram",
+        "thread_id": "tg:55501",
+        "thread_type": "dm",
+        "sender": {
+          "id": "user",
+          "name": "user",
+          "kind": "person"
+        },
+        "recipients": [
+          "tg:55501"
+        ],
+        "is_from_me": true,
+        "ts": 1780754400000,
+        "content": "note to self: pick up the cart",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": false
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": true,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "tg_self00000000000000000000000001"
+      }
+    },
+    {
+      "label": "dm_media_empty_text",
+      "raw": {
+        "source_msg_id": "tg_media0000000000000000000000001",
+        "ts": "2026-06-06T15:45:00.000Z",
+        "parties": [
+          "Dana Vox",
+          "user"
+        ],
+        "content": "",
+        "raw_content": {
+          "peer_type": "user",
+          "peer_id": 55501,
+          "peer_name": "Dana Vox",
+          "message_id": 9200,
+          "sender_id": 55501,
+          "sender_name": "Dana Vox",
+          "is_outgoing": false,
+          "is_self": false,
+          "text": "",
+          "media_type": "voice",
+          "reply_to": null,
+          "is_edit": false,
+          "edit_seq": 0
+        }
+      },
+      "expected": {
+        "platform": "telegram",
+        "thread_id": "tg:55501",
+        "thread_type": "dm",
+        "sender": {
+          "id": "tg:55501",
+          "name": "Dana Vox",
+          "kind": "person"
+        },
+        "recipients": [
+          "user"
+        ],
+        "is_from_me": false,
+        "ts": 1780760700000,
+        "content": "",
+        "reply_to_id": null,
+        "mentions": [],
+        "directed_at_me_signals": {
+          "mention_me": false,
+          "reply_to_me": false,
+          "addressed_to_me": true
+        },
+        "capabilities": {
+          "reply_to_available": true,
+          "structured_mentions": true,
+          "self_identity_reliable": true,
+          "addressing_first_class": false
+        },
+        "source_msg_id": "tg_media0000000000000000000000001"
+      }
+    }
+  ]
+}

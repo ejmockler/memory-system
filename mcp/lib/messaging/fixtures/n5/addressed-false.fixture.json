@@ -1,0 +1,50 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "operator absent from To:/Cc: (addressed_false) — no false-positive directedness",
+  "notes": "All parties synthetic; operator (alex@example.com) appears NOWHERE in To/Cc, so addressed_to_me must be false.",
+  "raw_mail_row": {
+    "source_msg_id": "<msg-addr-false-002@mail.example.com>",
+    "date_received": 1771060600,
+    "raw_content": {
+      "text": "Lunch on Thursday?",
+      "headers": {
+        "from": "Alice Example <alice@example.com>",
+        "to": "bob@example.com",
+        "cc": "carol@example.com",
+        "message-id": "<msg-addr-false-002@mail.example.com>"
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<msg-addr-false-002@mail.example.com>",
+    "thread_type": "dm",
+    "sender": {
+      "id": "alice@example.com",
+      "name": "Alice Example",
+      "kind": "person"
+    },
+    "recipients": [
+      "bob@example.com",
+      "carol@example.com"
+    ],
+    "is_from_me": false,
+    "ts": 1771060600000,
+    "content": "Lunch on Thursday?",
+    "reply_to_id": null,
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": false
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<msg-addr-false-002@mail.example.com>"
+  }
+}

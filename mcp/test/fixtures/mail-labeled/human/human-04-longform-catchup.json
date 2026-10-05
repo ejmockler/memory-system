@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "PASS",
+    "expected_reason": null,
+    "note": "Long-form catch-up letter, >200 chars (substantive_prose band), personal-mailbox 1:1."
+  },
+  "row": {
+    "ts": "2026-06-19T21:12:58.000Z",
+    "source_msg_id": "fixture:mail-labeled/human-04",
+    "parties": [
+      "sam.sample88@example.com",
+      "alex.example@example.com"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "Alex! Finally unpacked enough boxes to find my laptop charger, so here is the long-overdue update. The new place is smaller than the old apartment but the light in the mornings makes up for it, and there is a bakery downstairs that is going to be a problem. Work has been intense — the lab moved buildings the same week I did, which was chaos, but my bench neighbor turned out to be someone from the Tucson conference, small world. How did the marathon training survive the heat wave? And did you ever settle the great couch debate with your roommate? Come visit before the fall semester eats me alive; the guest futon is surprisingly decent and I owe you about four dinners.",
+      "subject": "Catching up after the move",
+      "headers": {
+        "from": "Sam Sample <sam.sample88@example.com>",
+        "to": "Alex Example <alex.example@example.com>",
+        "subject": "Catching up after the move",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX"
+    }
+  }
+}

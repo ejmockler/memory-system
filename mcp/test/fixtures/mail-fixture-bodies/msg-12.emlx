@@ -1,0 +1,11 @@
+273
+From: Verify Service <verify@synth.example.com>
+To: alex@example.com
+Subject: Sign-in code
+Date: Mon, 1 Jun 2026 14:23:20 +0000
+Message-ID: <otp-12@example.com>
+Content-Type: text/plain; charset=utf-8
+
+Your sign-in verification code is 654321. Code expires in ten minutes.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

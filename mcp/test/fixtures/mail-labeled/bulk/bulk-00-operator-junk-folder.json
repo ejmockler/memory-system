@@ -1,0 +1,45 @@
+{
+  "label": {
+    "expected_decision": "DROP",
+    "expected_reason": "operator_junk_folder",
+    "note": "Rule 0: operator filed the message in Junk. All other signals zeroed so attribution is exactly rule 0."
+  },
+  "row": {
+    "ts": "2026-04-03T11:05:33.000Z",
+    "source_msg_id": "fixture:mail-labeled/bulk-00",
+    "parties": [
+      "deals@lumenwick-candles.example",
+      "fixture-operator@mail.fixture-host.example"
+    ],
+    "source": "mail",
+    "raw_content": {
+      "text": "Forty percent off every autumn scent this weekend only. Shop the collection before it melts away.",
+      "subject": "Our biggest wax melt sale of the season",
+      "headers": {
+        "from": "Lumenwick Candles <deals@lumenwick-candles.example>",
+        "to": "fixture-operator@mail.fixture-host.example",
+        "subject": "Our biggest wax melt sale of the season",
+        "list-id": null,
+        "list-unsubscribe": null,
+        "auto-submitted": null,
+        "precedence": null,
+        "return-path": null,
+        "content-type": "text/plain; charset=utf-8",
+        "dkim-signature": null,
+        "authentication-results": null
+      },
+      "unsubscribe_type": 0,
+      "list_id_hash": null,
+      "automated_conversation": 0,
+      "brand_indicator": null,
+      "has_plain": true,
+      "has_html": false,
+      "has_calendar": false,
+      "dkim_d_domain": null,
+      "auth_results_d_domain": null,
+      "body_resolved": true,
+      "sender_is_bot": false,
+      "mailbox_url": "imap://fixture-operator@mail.fixture-host.example/INBOX/Junk"
+    }
+  }
+}

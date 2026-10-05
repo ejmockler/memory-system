@@ -1,0 +1,10 @@
+214
+From: Calendar Service <invites@example.com>
+To: alex@example.com
+Subject: Meeting invitation
+Date: Mon, 1 Jun 2026 14:56:40 +0000
+Message-ID: <cal-14@example.com>
+Content-Type: multipart/calendar; boundary="b14"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

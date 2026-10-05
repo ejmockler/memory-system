@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- com.user.memory-system.github-events-connector
+     Optional connector. Once a day at 04:17 runs one pass over GitHub events (the once
+     flag) through the gh CLI, which must be installed, authenticated and on PATH.
+     Template: render with scripts/render-launchd.mjs; see launchd/README.md. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.user.memory-system.github-events-connector</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__NODE__</string>
+		<string>__MEMORY_ROOT__/mcp/lib/connectors/github-events.js</string>
+		<string>--once</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>__HOME__</string>
+		<key>MEMORY_ROOT</key>
+		<string>__MEMORY_ROOT__</string>
+		<key>PATH</key>
+		<string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>__MEMORY_ROOT__</string>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>KeepAlive</key>
+	<false/>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>4</integer>
+		<key>Minute</key>
+		<integer>17</integer>
+	</dict>
+	<key>ThrottleInterval</key>
+	<integer>300</integer>
+	<key>StandardOutPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/github-events-connector.stdout</string>
+	<key>StandardErrorPath</key>
+	<string>__MEMORY_ROOT__/daemons/logs/github-events-connector.stderr</string>
+</dict>
+</plist>

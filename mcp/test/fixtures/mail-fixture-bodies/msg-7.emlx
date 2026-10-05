@@ -1,0 +1,13 @@
+375
+From: Alice Example <alice@example.com>
+To: alex@example.com
+Subject: Out of office: vacation responder
+Date: Mon, 1 Jun 2026 13:00:00 +0000
+Message-ID: <auto-7@example.com>
+Auto-Submitted: auto-replied
+Content-Type: text/plain; charset=utf-8
+
+I am out of the office through Friday with limited email access.
+I will respond when I return next week. Thanks for your patience.
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict></dict></plist>

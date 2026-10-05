@@ -1,0 +1,30 @@
+{
+  "schema": "operator-identity-config/v1",
+  "_comment": "Synthetic operator identity used by the test suites. Set MEMORY_OPERATOR_IDENTITY_FILE to this file BEFORE the first (dynamic) import of lib/identity/operator-identity.js. No value here belongs to a real person.",
+  "emails": [
+    "alex@example.com",
+    "alex.example@example.org",
+    "ops@example.org",
+    "alex@devbox.example.com"
+  ],
+  "github_usernames": [
+    "alex-example"
+  ],
+  "github_orgs": [
+    "example-org",
+    "example-labs"
+  ],
+  "github_org_actor_logins": [
+    "example-org"
+  ],
+  "imessage_handles": [
+    "alex@example.com"
+  ],
+  "phone_numbers": [
+    "+15555550101"
+  ],
+  "hostname_derived_emails": [
+    "alex@devbox.example.com"
+  ],
+  "hostname_derived_review_by": "2030-01-01"
+}

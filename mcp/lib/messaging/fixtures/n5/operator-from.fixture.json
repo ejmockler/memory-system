@@ -1,0 +1,49 @@
+{
+  "platform": "mail",
+  "stub": true,
+  "case": "operator is From: (is_from_me true) — authorship via isOperatorEmail",
+  "notes": "From: alex@example.com (an address listed in the synthetic operator-identity test config). is_from_me must be true and sender.id must equal the operator email. Operator is NOT in To/Cc, so addressed_to_me is false (you authored it).",
+  "raw_mail_row": {
+    "source_msg_id": "<msg-operator-from-004@mail.example.com>",
+    "date_received": 1771060800,
+    "raw_content": {
+      "text": "Sending the deck now.",
+      "headers": {
+        "from": "Alex <alex@example.com>",
+        "to": "alice@example.com",
+        "cc": null,
+        "message-id": "<msg-operator-from-004@mail.example.com>"
+      }
+    }
+  },
+  "expected_envelope": {
+    "platform": "mail",
+    "thread_id": "<msg-operator-from-004@mail.example.com>",
+    "thread_type": "dm",
+    "sender": {
+      "id": "alex@example.com",
+      "name": "Alex",
+      "kind": "person"
+    },
+    "recipients": [
+      "alice@example.com"
+    ],
+    "is_from_me": true,
+    "ts": 1771060800000,
+    "content": "Sending the deck now.",
+    "reply_to_id": null,
+    "mentions": [],
+    "directed_at_me_signals": {
+      "mention_me": false,
+      "reply_to_me": false,
+      "addressed_to_me": false
+    },
+    "capabilities": {
+      "reply_to_available": true,
+      "structured_mentions": false,
+      "self_identity_reliable": true,
+      "addressing_first_class": true
+    },
+    "source_msg_id": "<msg-operator-from-004@mail.example.com>"
+  }
+}
